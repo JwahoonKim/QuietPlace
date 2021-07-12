@@ -11,6 +11,7 @@
       type="text/css"
       href="{% sass_src 'quietPlace/scss/resetCss.scss' %}"
     />
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -19,18 +20,25 @@
     {% comment %} js를 작성해서 html에 연결해주려면 아래와 같이 쓰자. {%
     endcomment %} {% comment %} type='module' 속성은 6주차 세미나자료에서
     찾아보자! js 코드들의 전역변수화를 방지하는 역할인듯 {% endcomment %}
+
     <script
       type="module"
       src="{% static 'queitPlace/js/작성한js.js' %}"
     ></script>
+
     {% comment %} axios 비동기 방식을 사용하기 위한 코드, axios 라이브러리 추가
     {% endcomment %}
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <title>Queit Place!</title>
   </head>
   <body>
+   
     <header class="Menu_Header">
       <p>토글 아이콘</p>
+      <a href="{% url 'signup' %}">회원가입</a>
+      <a href="{% url 'login' %}">로그인</a>
+      <a href="{% url 'header' %}">header</a>
     </header>
     <div id="Main_landing">
       <div class="Main_intro">
