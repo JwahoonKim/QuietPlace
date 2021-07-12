@@ -1,0 +1,87 @@
+body {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  background-image: url("../image/Main_Background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 800px;
+  color: white;
+}
+
+#Main_landing {
+  height: 450px;
+}
+
+.Menu_Header {
+  padding: 20px 10px;
+  background-color: rgba(94, 85, 11, 0.4);
+  position: fixed;
+  top: 0;
+  /* width: 100% */
+  left: 0;
+  right: 0;
+}
+
+.Main_intro {
+  margin-top: 350px;
+  margin-bottom: 50px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.Main_intro {
+  div {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+#Main_IntroMsg {
+  font-size: 40px;
+}
+
+#Main_QP {
+  font-size: 25px;
+}
+
+#Main_Button_Container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#Main_Button_Container {
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+
+#Main_Button_Container {
+  button {
+    margin: 10px 80px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    border-color: none;
+    padding: 10px 20px;
+  }
+}
+
+.Main_Introduction {
+  height: 1000px;
+  background-color: rgba(0, 0, 0, 1);
+}
