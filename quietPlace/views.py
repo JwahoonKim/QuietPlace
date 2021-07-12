@@ -15,3 +15,18 @@ def header(request):
 
 def cafe(request):
     return render(request, 'quietPlace/cafe.html')
+
+def recommendation(request):
+    return render(request, 'quietPlace/recommendation.html')
+
+def my_page(request):
+    return render(request, 'quietPlace/my_page.html')
+
+def likeCafe(request):
+    return render(request, 'quietPlace/likeCafeList.html')
+
+def cafeList(request):
+    return render(request, 'quietPlace/cafeList.html')
+
+def cafe_review(request):
+    return render(request, 'quietPlace/cafe_review.html')
