@@ -3,8 +3,15 @@ from django.shortcuts import render
 # from django.http import JsonResponse
 
 # Create your views here.
+
+
 def index(request):
     return render(request, 'quietPlace/index.html')
 
+
 def header(request):
     return render(request, 'quietPlace/header.html')
+
+
+def cafe(request):
+    return render(request, 'quietPlace/cafe.html')
