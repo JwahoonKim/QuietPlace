@@ -21,6 +21,7 @@
             <div class="container">
                 <div class="signup-content">
                     <form method="POST" id="signup-form" class="signup-form">
+                        {% csrf_token %}
                         <h2 class="form-title">회원 가입</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="name" id="name" placeholder="아이디"/>
@@ -44,7 +45,7 @@
                     </form>
                 </div>
                 <p class="loginhere">
-                    이미 계정이 있나요? <a href="#" class="loginhere-link">Login here</a>
+                    이미 계정이 있나요? <a href="{% url 'login' %}" class="loginhere-link">Login here</a>
                 </p>
             </div>
         </section>

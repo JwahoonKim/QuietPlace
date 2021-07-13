@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load sass_tags %} {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% sass_src 'quietPlace/scss/cafe.scss' %}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Quiet Place</title>
+  </head>
+  <body>
+    <div>개별 카페 페이지</div>
+    <header style="margin-bottom: 100px">헤더자리</header>
+    <!-- 카페 사진들 + 더보기 상자 -->
+    <div class="cafe-photo">
+      <div class="cafe-photo-left">
+        <img
+          id="left-img"
+          class="col"
+          src="{% static 'quietPlace/img/스벅1.jpg' %}"
+          alt=""
+        />
+      </div>
+      <div class="cafe-photo-right">
+        <div class="cafe-photo-right-1">
+          <img
+            id="right-img_1"
+            class="col"
+            src="{% static 'quietPlace/img/스벅2.jpg' %}"
+            alt=""
+            />
+        </div>
+        <!-- 더보기 항목으로 바꿔야함! -->
+        <div class="cafe-photo-right-more">
+          <img
+            id="right-img_more"
+            src="{% static 'quietPlace/img/스벅3.jpg' %}"
+            alt=""
+          />
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="cafe-info">
+      <div class="cafe-info-left">
+        <div class='cafe-info-left-upper'>
+            <div class="cafe-info-left-name">Remember Me</div>
+            <button class="cafe-info-left-like">❤</button>
+        </div>
+        <div class="cafe-info-brief">루프탑이 매력적인 리멤버미</div>
+      </div>
+      <div class="cafe-info-right">
+        <div class="cafe-info-time">영업시간 : 
+          <span class="cafe-info-timedata info-data">매일 10:00 ~ 22:00</span>
+        </div>
+        <div class="cafe-info-detail">영업 상세 : 
+          <span class="cafe-info-detaildata info-data">둘째주 수요일은 휴무에요.</span>
+        </div>
+        <div class="cafe-phone-number">대표 전화번호 : 
+          <span class="cafe-info-phone-number-data info-data">010 - 2901 - 7730</span>
+        </div>
+      </div>
+    </div>
+    <div class="cafe-info-tags">
+      <img src="{% static 'quietPlace/img/coworking.svg'%}" alt="">
+      <img src="{% static 'quietPlace/img/dining.svg'%}" alt="">
+      <img src="{% static 'quietPlace/img/no-sound.svg'%}" alt="">
+      <img src="{% static 'quietPlace/img/plugging.svg'%}" alt="">
+      <img src="{% static 'quietPlace/img/sanitary.svg'%}" alt="">
+      <img src="{% static 'quietPlace/img/table.svg'%}" alt="">
+      <img src="{% static 'quietPlace/img/water-closet.svg'%}" alt="">
+      <img src="{% static 'quietPlace/img/wifi.svg'%}" alt="">
+    </div>
+    <!-- 리뷰가 두줄 넘어가면 더보기로 바꾸기 -->
+    
+    <div class="cafe-reviews">
+      <div class="reviews-title">
+        <div class="reviews-title-name">리뷰</div>
+        <a href="#" class="write-review">리뷰 작성하러가기</a>
+      </div>
+      <div class="reviews">
+      <div class="card review" style="width: 16rem;">
+        <img src="{% static 'quietPlace/img/스벅1.jpg' %}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">자흐니</h5>
+          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
+          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요</p>
+          <a href="#">더보기</a>
+        </div>
+      </div>
+
+      <div class="card review" style="width: 16rem;">
+        <img src="{% static 'quietPlace/img/스벅2.jpg' %}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">재흐니</h5>
+          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
+          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요</p>
+          <a href="#">더보기</a>
+        </div>
+      </div>
+
+      <div class="card review" style="width: 16rem;">
+        <img src="{% static 'quietPlace/img/스벅3.jpg' %}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">좌흐니</h5>
+          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
+          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요...</p>
+          <a href="#">더보기</a>
+        </div>
+      </div>
+
+      <div class="card review" style="width: 16rem;">
+        <img src="{% static 'quietPlace/img/스벅3.jpg' %}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">자흐니</h5>
+          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
+          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요</p>
+          <a href="#">더보기</a>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <div id="map">지도 나올 곳</div>
+  </body>
+</html>

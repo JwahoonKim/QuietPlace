@@ -1,36 +1,33 @@
 body {
-  font-family: Roboto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.4s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-style: normal;
   font-weight: bold;
   background-image: url("../image/Main_Background.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 800px;
+  background-size: 100% 750px;
   color: white;
 }
 
 #Main_landing {
-  height: 450px;
-}
-
-.Menu_Header {
-  padding: 20px 10px;
-  background-color: rgba(94, 85, 11, 0.4);
-  position: fixed;
-  top: 0;
-  /* width: 100% */
-  left: 0;
-  right: 0;
+  height: 400px;
 }
 
 .Main_intro {
-  margin-top: 350px;
-  margin-bottom: 50px;
-  height: 200px;
+  margin-bottom: 30px;
+  height: 180px;
+  width: 60%;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   color: white;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .Main_intro {
@@ -41,15 +38,16 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
+
   }
 }
 
 #Main_IntroMsg {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 #Main_QP {
-  font-size: 25px;
+  font-size: 50px;
 }
 
 #Main_Button_Container {
@@ -81,7 +79,12 @@ body {
   }
 }
 
-.Main_Introduction {
+#Main_Introduction {
   height: 1000px;
   background-color: rgba(0, 0, 0, 1);
+}
+
+.intro-img {
+  height: 200px;
+  
 }
