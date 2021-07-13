@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load sass_tags %} {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% sass_src 'quietPlace/scss/cafe.scss' %}"
+    />
+    <title>Quiet Place</title>
+  </head>
+  <body>
+    <div>개별 카페 페이지</div>
+    <header>헤더자리</header>
+    <!-- 카페 사진들 + 더보기 상자 -->
+    <section class="cafe-photo">
+      <div class="cafe-photo-left">
+        <img src="{% static 'quietPlace/img/스벅1.jpg' %}" alt="" srcset="" />
+      </div>
+      <div class="cafe-photo-rigth">
+        <div class="cafe-photo-sub">
+          <img src="{% static 'quietPlace/img/스벅2.jpg' %}" alt="" srcset="" />
+        </div>
+        <div class="cafe-photo-more">
+          <!-- 더보기 -->
+          <img src="{% static 'quietPlace/img/스벅3.jpg' %}" alt="" srcset="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="cafe-info"></section>
+    <section class="cafe-reviews"></section>
+    <section class="cafe-map"></section>
+    <a href="{% url "cafe_review" %}">카페 리뷰 작성하기</a>
+
+  </body>
+</html>
