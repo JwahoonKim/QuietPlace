@@ -1,45 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    {% comment %} {% load static %}은 템플릿 태그는 정적 파일의 절대 URL을
-    생성합니다. {% endcomment %} {% load static %} {% comment %} 아래 코드를
-    추가해주어야 scss 사용가능 {% endcomment %} {% load sass_tags %} {%comment%}
-    resetCss 적용 {% endcomment %}
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% sass_src 'quietPlace/scss/resetCss.scss' %}"
-    />
-
-    <link
+{% extends 'quietPlace/base.html' %}
+{% load static %}
+{% load sass_tags %}
+{% block style %}
+  <link
       rel="stylesheet"
       type="text/css"
       href="{% sass_src 'quietPlace/scss/index.scss' %}"
     />
-    {% comment %} js를 작성해서 html에 연결해주려면 아래와 같이 쓰자. {%
-    endcomment %} {% comment %} type='module' 속성은 6주차 세미나자료에서
-    찾아보자! js 코드들의 전역변수화를 방지하는 역할인듯 {% endcomment %}
-
-    <script
-      type="module"
-      src="{% static 'queitPlace/js/작성한js.js' %}"
-    ></script>
-
-    {% comment %} axios 비동기 방식을 사용하기 위한 코드, axios 라이브러리 추가
-    {% endcomment %}
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <title>Queit Place!</title>
-  </head>
-  <body>
-    <header class="Menu_Header">
-      <p>토글 아이콘</p>
-      <a href="{% url 'signup' %}">회원가입</a>
-      <a href="{% url 'login' %}">로그인</a>
-      <a href="{% url 'header' %}">header</a>
-      <a href="{% url 'my_page' %}">myPage</a>
-    </header>
+{% endblock style %}
+{% block content %}
     <div id="Main_landing">
       <div class="Main_intro">
         <div id="Main_IntroMsg">오늘도 작업할 곳을 찾아 헤매는 여러분께.</div>
@@ -47,7 +16,9 @@
       </div>
       <div id="Main_Button_Container">
         <div>
-          <a href="#Main_Introduction">Quiet Place가 궁금해요!</ㅁ>
+          <button>
+            <a style="color: white" href="#Main_Introduction">Quiet Place가 궁금해요!</a>
+          </button>
           <button>바로 시작하기</button>
         </div>
       </div>
@@ -66,5 +37,4 @@
       </div>
       <div class=""></div>
     </div>
-  </body>
-</html>
+{% endblock content %}
