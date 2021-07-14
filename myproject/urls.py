@@ -19,12 +19,13 @@ from django.conf.urls import include
 import quietPlace.views
 from django.conf import settings
 from django.conf.urls.static import static
-
+import accounts.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', quietPlace.views.index, name='index'),
     path('posts/', include('quietPlace.urls')),
-    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', accounts.views.signup, name='signup'),
+    path('accounts/revise/', accounts.views.revise, name='revise'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
