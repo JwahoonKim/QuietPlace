@@ -8,17 +8,10 @@
 
 <body>
   <h1>카페 추가하기</h1>
-<!--  <form action="{% url 'quiteplace:index' %}" method="POST">
-    {% csrf_token %}
-    <p>태그 선택</p>
-    {% for tag in tags %}
-      {{ tag.content }}
-      <input name="tags" type="checkbox" value={{tag.id}} />
-    {% endfor %}-->
     <input type='text' value='카페명' name='cafename'/> <br/>
     <p>운영시간</p><input type='textarea' value='ex) 월화수목금 10:00~22:00' name='o-hour'/> <br/>
     <p>대표 전화번호</p><input type='text' value='ex) 01011111111' name='telephone'/> <br/>
-    <p>위치</p><input value='카카오맵에 뜨는 도로명주소 입력' name='location'/> <br/>
+    <p>위치</p><input value=' 도로명주소 입력' name='location'/> <br/>
     <p>카페 설명</p><textarea value='카페 소개 간략히' name="introduce" rows="20" cols="70"></textarea> <br/>
     <input type="submit" value="작성완료" />
   </form>
