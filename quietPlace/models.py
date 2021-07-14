@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Cafe(models.Model):
@@ -21,6 +22,7 @@ class Cafe(models.Model):
 
 
 class Review(models.Model):
+    # 이미지 필드 추가
     content = models.TextField()
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
@@ -37,3 +39,9 @@ class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
+
+class Tag(models.Model):
+    star = models.IntegerField(
+        default=1,
+        validators=[MaxValueValidator(5), MinValueValidator(1)])
+    review = models.ForeignKey(Review, on_delete=models.CASCADE)
