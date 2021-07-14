@@ -22,20 +22,26 @@ def header(request):
 def cafe(request):
     return render(request, 'quietPlace/cafe.html')
 
+
 def recommendation(request):
     return render(request, 'quietPlace/recommendation.html')
+
 
 def my_page(request):
     return render(request, 'quietPlace/my_page.html')
 
+
 def likeCafe(request):
     return render(request, 'quietPlace/likeCafeList.html')
+
 
 def cafeList(request):
     return render(request, 'quietPlace/cafeList.html')
 
+
 def cafe_review(request):
     return render(request, 'quietPlace/cafe_review.html')
+
 
 def new_cafe(request):
     if request.method == 'GET':
@@ -46,5 +52,6 @@ def new_cafe(request):
         working_hour = request.POST['working_hour']
         phone = request.POST['phone']
         location = request.POST['location']
-        cafe = Cafe.objects.create(cafe_name=cafe_name, cafe_description=cafe_description, working_hour=working_hour, phone=phone, location=location)
+        cafe = Cafe.objects.create(cafe_name=cafe_name, cafe_description=cafe_description,
+                                   working_hour=working_hour, phone=phone, location=location)
         return render(request, 'quietPlace/cafe.html')

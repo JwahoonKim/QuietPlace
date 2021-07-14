@@ -7,7 +7,6 @@ from django.conf.urls.static import static
 import accounts.views
 import quietPlace
 
-# url app별로 분리하자~~
 
 urlpatterns = [
     path('', views.index, name='index'),
