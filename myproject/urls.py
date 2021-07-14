@@ -27,7 +27,5 @@ urlpatterns = [
     path('posts/', include('quietPlace.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', accounts.views.signup, name='signup'),
-    # path('accounts/login/', accounts.views.login, name='login'),
     path('accounts/revise/', accounts.views.revise, name='revise'),
-
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

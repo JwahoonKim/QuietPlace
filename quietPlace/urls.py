@@ -16,7 +16,7 @@ urlpatterns = [
     path('recommendation', quietPlace.views.recommendation, name='recommendation'),
     path('my_page', quietPlace.views.my_page, name='my_page'),
     path('likeCafe/', quietPlace.views.likeCafe, name='likeCafe'),
-    path('accounts/revise', accounts.views.revise, name='reviseInfo'),
     path('cafeList/', quietPlace.views.cafeList, name='cafeList'),
     path('cafe_review', quietPlace.views.cafe_review, name='cafe_review'),
+    path('newcafe/', quietPlace.views.new_cafe, name='new_cafe'),
 ]
