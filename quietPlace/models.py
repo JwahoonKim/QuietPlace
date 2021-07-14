@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Cafe(models.Model):
@@ -21,6 +22,7 @@ class Cafe(models.Model):
 
 
 class Review(models.Model):
+    # 이미지 필드 추가
     content = models.TextField()
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
@@ -28,6 +30,9 @@ class Review(models.Model):
     # like_users는 넣어야할 필드인지 잘 모르겟네?
     # like_users = models.ManyToManyField(
     #     User, blank=True, related_name='like_comments')
+    star = models.IntegerField(
+        default=1,
+        validators=[MaxValueValidator(5), MinValueValidator(1)])
 
     def __str__(self):
         return f'[cafe: {self.cafe}], {self.content}'
@@ -37,3 +42,7 @@ class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
+
+
+class Tag(models.Model):
+    cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
