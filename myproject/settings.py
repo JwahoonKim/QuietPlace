@@ -123,10 +123,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-  os.path.join(BASE_DIR, 'accounts', 'static'),
-  os.path.join(BASE_DIR, 'quietPlace', 'static'),
+    os.path.join(BASE_DIR, 'accounts', 'static'),
+    os.path.join(BASE_DIR, 'quietPlace', 'static'),
 ]
 
 # Default primary key field type
@@ -134,5 +134,5 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SASS_PROCESSOR_ENABLED =  True
-SASS_PROCESSOR_ROOT =  os.path.join(BASE_DIR, 'quietPlace', 'static')
+SASS_PROCESSOR_ENABLED = True
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'quietPlace', 'static')
