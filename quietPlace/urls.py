@@ -14,4 +14,5 @@ urlpatterns = [
     path('likeCafe/', quietPlace.views.likeCafe, name='likeCafe'),
     path('cafeList/', quietPlace.views.cafeList, name='cafeList'),
     path('cafe_review', quietPlace.views.cafe_review, name='cafe_review'),
+    path('newcafe/', quietPlace.views.new_cafe, name='new_cafe'),
 ]

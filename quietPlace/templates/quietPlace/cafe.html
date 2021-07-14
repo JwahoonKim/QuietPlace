@@ -9,9 +9,6 @@
     />
 {% endblock style %}
 {% block content %}
-    <div class="col-12 mb-3">
-        <div style="height: 100px;"></div>
-    </div>
     <!-- 카페 사진들 + 더보기 상자 -->
     <div class="cafe-photo">
       <div class="cafe-photo-left">
@@ -114,6 +111,18 @@
 
       <div class="card review" style="width: 16rem;">
         <img src="{% static 'quietPlace/img/스벅3.jpg' %}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">자흐니</h5>
+          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
+          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요</p>
+          <a href="#">더보기</a>
+        </div>
+      </div>
+
+      <div class="card review" style="width: 16rem;">
+        {% for photo in review.photo_set.all%}
+          <img src="{{photo.image.url}}" class="card-img-top" alt="">
+        {% endfor %}
         <div class="card-body">
           <h5 class="card-title">자흐니</h5>
           <p class="cafe-rate">⭐⭐⭐⭐⭐</p>

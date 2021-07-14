@@ -7,8 +7,7 @@ import os
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    nickname = models.CharField(max_length=20)
-    
+    nickname = models.CharField(max_length=20, default="닉네임을 설정해주세요")
     # 아래는 뭘까 ???
     is_login = False
 

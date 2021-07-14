@@ -1,4 +1,10 @@
-from django.shortcuts import render
+from django.http.request import HttpRequest
+from django.http.response import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+import quietPlace
+from quietPlace.models import Cafe, Review, Photo, Like, Tag
+from accounts.models import Profile
+from django.http import JsonResponse
 # JsonResponse 추가가 필요한 경우 아래 코드 추가
 # from django.http import JsonResponse
 
@@ -30,3 +36,15 @@ def cafeList(request):
 
 def cafe_review(request):
     return render(request, 'quietPlace/cafe_review.html')
+
+def new_cafe(request):
+    if request.method == 'GET':
+        return render(request, 'quietPlace/newcafe.html')
+    if request.method == 'POST':
+        cafe_name = request.POST['cafe_name']
+        cafe_description = request.POST['cafe_description']
+        working_hour = request.POST['working_hour']
+        phone = request.POST['phone']
+        location = request.POST['location']
+        cafe = Cafe.objects.create(cafe_name=cafe_name, cafe_description=cafe_description, working_hour=working_hour, phone=phone, location=location)
+        return render(request, 'quietPlace/cafe.html')
