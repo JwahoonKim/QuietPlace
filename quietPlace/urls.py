@@ -1,5 +1,9 @@
 from django.urls import path
+from django.contrib import admin
 from quietPlace import views
+from django.conf.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
 import accounts.views
 import quietPlace
 
@@ -7,8 +11,6 @@ import quietPlace
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('accounts/', accounts.views.signup, name='signup'),
-    path('accounts/login/', accounts.views.login, name='login'),
     path('header/', quietPlace.views.header, name='header'),
     path('cafe/', quietPlace.views.cafe, name='cafe'),
     path('recommendation', quietPlace.views.recommendation, name='recommendation'),
