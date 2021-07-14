@@ -28,7 +28,8 @@
 </head>
 
   <body>
-<!--1) 로그인x시 헤더-->
+<!--1) 로그인시 헤더-->
+    {% if user.is_authenticated %}
     <header class="header_area clearfix">
         <div class="container-fluid h-100">
             <div class="row h-100">
@@ -42,34 +43,9 @@
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                             <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
                                 <ul class="navbar-nav animated" id="nav">
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">회원가입하기</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">로그인하기</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-<!--2) 로그인시 헤더-->
-    <header class="header_area clearfix">
-        <div class="container-fluid h-100">
-            <div class="row h-100">
-                <!-- Menu Area Start -->
-                <div class="col-12 h-100">
-                    <div class="menu_area h-100">
-                        <nav class="navbar h-100 navbar-expand-lg align-items-center">
-                            <!-- Logo -->
-                            <a class="navbar-brand" href="{% url 'index' %}">Quiet Place</a>
-                            <!-- Menu Area -->
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                            <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
-                                <ul class="navbar-nav animated" id="nav">
-                                    <li>{{ user.get_nickname }}님, 안녕하세요</li>
+                                    <li>{{ user.profile.nickname }}님, 안녕하세요</li>
                                     <li class="nav-item"><a class="nav-link" href="{% url 'likeCafe' %}">내가 찜한 목록 확인하기</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">로그아웃하기</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">로그아웃하기</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -78,7 +54,32 @@
             </div>
         </div>
    </header>
-
+   {% else %}
+<!--2) 로그인x시 헤더-->
+    <header class="header_area clearfix">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <!-- Menu Area Start -->
+                <div class="col-12 h-100">
+                    <div class="menu_area h-100">
+                        <nav class="navbar h-100 navbar-expand-lg align-items-center">
+                            <!-- Logo -->
+                            <a class="navbar-brand" href="{% url 'index' %}">Quiet Place</a>
+                            <!-- Menu Area -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                            <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
+                                <ul class="navbar-nav animated" id="nav">
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">로그인</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">회원가입</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endif %}
     {% block content%}
     {% endblock content %}
 
