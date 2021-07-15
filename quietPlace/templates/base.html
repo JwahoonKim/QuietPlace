@@ -44,6 +44,7 @@
                             <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
                                 <ul class="navbar-nav animated" id="nav">
                                     <li>{{ user.profile.nickname }}님, 안녕하세요</li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'my_page' %}">마이페이지</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{% url 'likeCafe' %}">내가 찜한 목록 확인하기</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">로그아웃하기</a></li>
                                 </ul>
@@ -69,15 +70,8 @@
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                             <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
                                 <ul class="navbar-nav animated" id="nav">
-<<<<<<< HEAD:quietPlace/templates/quietPlace/base.html
-                                    <li>{{ user.get_nickname }}님, 안녕하세요</li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'my_page' %}">마이페이지</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="{% url 'likeCafe' %}">내가 찜한 목록 확인하기</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">로그아웃하기</a></li>
-=======
                                     <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">로그인</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">회원가입</a></li>
->>>>>>> e64066c3cd5cbb0e4fc31319431fe5dcb3dade60:quietPlace/templates/base.html
                                 </ul>
                             </div>
                         </nav>
