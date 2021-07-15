@@ -43,7 +43,7 @@ def cafeList(request):
     return render(request, 'quietPlace/cafeList.html', {"cafes": cafes, "tags": tags})
 
 
-def cafe_review(request):
+def cafe_review(request, id):
     return render(request, 'quietPlace/cafe_review.html')
 
 

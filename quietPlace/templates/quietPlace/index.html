@@ -15,12 +15,7 @@
         <div id="Main_QP"><a>Quiet Place</a></div>
       </div>
       <div id="Main_Button_Container">
-        <div>
-          <button>
-            <a style="color: white" href="#Main_Introduction">Quiet Place가 궁금해요!</a>
-          </button>
           <button>바로 시작하기</button>
-        </div>
       </div>
     </div>
     <!--여기까지 랜딩 페이지1-->
@@ -50,6 +45,8 @@
         </div>
       </div>
     </div>
+
+
     <section class="vertical-space row" style="background-color:black;">
         <div class="col-12 mb-3">
             <div style="height: 100px;"></div>
@@ -58,7 +55,7 @@
     <div class="container pt-5 pb-5">
       <div class="row">
         <div class="col-6 text-center">
-          <form action="{% url 'cafeList' %}" method="GET">
+          <form action="{% url 'cafeList' %}" method="POST">
             <input type="text" name="search_value" class="mr-2 cafe-search" placeholder="입력"></input>
             <input type="submit" value="검색하기"/>
           </form>
