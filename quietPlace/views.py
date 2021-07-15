@@ -26,10 +26,10 @@ def recommendation(request):
     return render(request, 'quietPlace/recommendation.html')
 
 def my_page(request):
-    return render(request, 'quietPlace/my_page.html')
+    return render(request, 'accounts/my_page.html')
 
 def likeCafe(request):
-    return render(request, 'quietPlace/likeCafeList.html')
+    return render(request, 'accounts/likeCafeList.html')
 
 def cafeList(request):
     return render(request, 'quietPlace/cafeList.html')
