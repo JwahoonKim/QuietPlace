@@ -1,40 +1,42 @@
-
-  {% extends 'base.html' %}
-  {% load static %}
-  {% load sass_tags %}
-  {% block style %}
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% sass_src 'quietPlace/scss/cafeList.scss' %}"
-    />
-  {% endblock style %}
-  {% block content %}
-    <div class="mt-5 container-fluid text-center">
-      <a>카페</a>
-      <a>스터디룸</a>
-      <a>스터디 카페</a>
-    </div>
-    <div class="container-fluid mt-5">
-      <div class="row row-cols-4 ml-auto">
-      {% for cafe in cafes %}
-        <div class="col gy-5">
-          <div class="card cafe-post">
-            <a href="{% url 'cafe' id=cafe.id %}">
-              <img  src="https://www.jeongdong.or.kr/static/portal/img/HKPU_04_04_pic1.jpg" class="card-img-top img-rounded" alt="...">
-            </a>
-            <div class="card-body">
-              <h5 href="{% url 'cafe' %}"" class="card-title">{{ cafe.cafe_name }}</h5>
-              <h6>{{ cafe.cafe_description }}</h6>
-              <ul class="list-group">
-               <li class="list-group-item">음량 아이콘: 조용해요</li>
-               <li class="list-group-item">의자 아이콘: 편안해요</li>
-               <li class="list-group-item">아메리카노 아이콘: 3500원</li>
-              </ul>
-            </div>
-          </div>
+{% extends 'base.html' %} {% load static %} {% load sass_tags %} {% block style
+%}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% sass_src 'quietPlace/scss/cafeList.scss' %}"
+/>
+{% endblock style %} {% block content %}
+<div class="mt-5 container-fluid text-center">
+  <a>카페</a>
+  <a>스터디룸</a>
+  <a>스터디 카페</a>
+</div>
+<div class="container-fluid mt-5">
+  <div class="row row-cols-4 ml-auto">
+    {% for cafe in cafes %}
+    <div class="col gy-5">
+      <div class="card cafe-post">
+        <a href="{% url 'cafe' id=cafe.id %}">
+          <img
+            src="https://www.jeongdong.or.kr/static/portal/img/HKPU_04_04_pic1.jpg"
+            class="card-img-top img-rounded"
+            alt="..."
+          />
+        </a>
+        <div class="card-body">
+          <h5 href="{% url 'cafe' %}" class="card-title">
+            {{ cafe.cafe_name }}
+          </h5>
+          <h6>{{ cafe.cafe_description }}</h6>
+          <ul class="list-group">
+            <li class="list-group-item">음량 아이콘: 조용해요</li>
+            <li class="list-group-item">의자 아이콘: 편안해요</li>
+            <li class="list-group-item">아메리카노 아이콘: 3500원</li>
+          </ul>
         </div>
-      {% endfor %}
       </div>
     </div>
-  {% endblock content %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
