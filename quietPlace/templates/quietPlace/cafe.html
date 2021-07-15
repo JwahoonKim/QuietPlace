@@ -1,137 +1,186 @@
-{% extends 'quietPlace/base.html' %}
-{% load static %}
-{% load sass_tags %}
-{% block style %}
-  <link
+{% load static %} {% load sass_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="A front-end template that helps you build fast, modern mobile web apps."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <title>{{ cafe.cafe_name }}</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="icon" sizes="192x192" href={% static
+    'forCafe/images/touch/chrome-touch-icon-192x192.png' %} />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
+    />
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite" />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="apple-touch-icon-precomposed.png"
+    />
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content={% static
+    "forCafe/images/touch/ms-touch-icon-144x144-precomposed.png" %} />
+    <meta name="msapplication-TileColor" content="#3372DF" />
+
+    <link
+      href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
       rel="stylesheet"
       type="text/css"
-      href="{% sass_src 'quietPlace/scss/cafe.scss' %}"
     />
-{% endblock style %}
-{% block content %}
-    <!-- 카페 사진들 + 더보기 상자 -->
-    <div class="cafe-photo">
-      <div class="cafe-photo-left">
-        <img
-          id="left-img"
-          class="col"
-          src="{% static 'quietPlace/img/스벅1.jpg' %}"
-          alt=""
-        />
-      </div>
-      <div class="cafe-photo-right">
-        <div class="cafe-photo-right-1">
-          <img
-            id="right-img_1"
-            class="col"
-            src="{% static 'quietPlace/img/스벅2.jpg' %}"
-            alt=""
-            />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.grey-orange.min.css"
+    />
+    <link rel="stylesheet" href={% sass_src "forCafe/scss/styles.scss" %}/>
+    <style>
+      #view-source {
+        position: fixed;
+        display: block;
+        right: 0;
+        bottom: 0;
+        margin-right: 40px;
+        margin-bottom: 40px;
+        z-index: 900;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+    <div
+      class="
+        demo-blog demo-blog--blogpost
+        mdl-layout mdl-js-layout
+        has-drawer
+        is-upgraded
+      "
+    >
+      <main class="mdl-layout__content">
+        <div id="first" class="demo-blog__posts mdl-grid">
+          <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__media mdl-color-text--grey-50">
+              <h5 class="more-photo">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                  <strong>사진 더보기 > </strong>
+                </button>
+              </h5>
+            </div>
+            <div
+              class="mdl-color-text--grey-700 mdl-card__supporting-text meta" 
+            >
+              <div class="cafe-title">
+                <strong>{{ cafe.cafe_name }}</strong>
+              </div>
+              <div class="cafe-star">⭐⭐⭐⭐</div>
+              <div class="section-spacer"></div>
+              <!-- 좋아요 아이콘 누르면 빨갛게 변하게하기 -->
+              <div class="meta__favorites">
+              {% comment %} 425를 cafe.like_users.count()로 바꿔 {% endcomment %}
+                <i class="material-icons" role="presentation">favorite</i> 425
+                <span class="visuallyhidden">favorites</span>
+              </div>
+            </div>
+            <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
+              <p>
+                {{ cafe.cafe_description }}
+              </p>
+              <p>
+                <div class="cafe-info-tags">
+                  <img src="{% static 'quietPlace/img/coworking.svg'%}" alt="">
+                  <img src="{% static 'quietPlace/img/dining.svg'%}" alt="">
+                  <img src="{% static 'quietPlace/img/no-sound.svg'%}" alt="">
+                  <img src="{% static 'quietPlace/img/plugging.svg'%}" alt="">
+                  <img src="{% static 'quietPlace/img/sanitary.svg'%}" alt="">
+                  <img src="{% static 'quietPlace/img/table.svg'%}" alt="">
+                  <img src="{% static 'quietPlace/img/water-closet.svg'%}" alt="">
+                  <img src="{% static 'quietPlace/img/wifi.svg'%}" alt="">
+                </div>
+              </p>
+              <p>
+                영업 시간 : {{ cafe.working_hour }}
+                <br>
+                영업 상세 : {{ cafe.working_detail }} 
+                <br>
+                대표 전화 : {{ cafe.phone }}
+              </p>
+              <br>
+              
+              <p>
+              {% comment %} 아래는 지도가 들어가야해 {% endcomment %}
+                <img src="{% static 'quietPlace/img/리멤버미위치.png'%}" alt="" />
+              </p>
+            </div>
+            <!-- 댓글 관련 div 시작 -->
+            <div
+              class="
+                mdl-color-text--primary-contrast
+                mdl-card__supporting-text
+                comments
+              "
+            >
+              <div class="reviews-upper">
+                <div class="reviews-upper-title">리뷰</div>
+                <!--  -->
+                <a href="#" class="write-review">리뷰 작성하러가기</a>
+              </div>
+              <!-- 실제 댓글들 시작 -->
+              <!-- 리뷰가 없다면 리뷰가 없어요 띄워주자! -->
+              <div class="reviews">
+                {% for review in cafe.review_set.all %}
+                  <div class="comment mdl-color-text--grey-700 review">
+                    <header class="comment__header">
+                        <!-- 프로필사진 이미지-->
+                      <img src={% static "forCafe/images/co1.jpg" %}
+                      class="comment__avatar" />
+                      <div class="comment__author">
+                        <strong class="review-nickname">{{ review.author.profile.nickname }}</strong>
+                      </div>
+                      <div class="review-star">⭐⭐⭐⭐⭐</div>
+                    </header>
+                    <div class="comment__text">
+                      {{ review.content }}
+                    </div>
+                  </div>
+                {% endfor %%}
+              </div>
+            </div>
+
+              <a href="#first" class="to-first">
+                <button class="mdl-button mdl-js-button mdl-button--fab">
+                  <i class="material-icons">arrow_upward</i>
+                </button>
+              </a>
+            </div>
+
+          </div>
         </div>
-        <!-- 더보기 항목으로 바꿔야함! -->
-        <div class="cafe-photo-right-more">
-          <img
-            id="right-img_more"
-            src="{% static 'quietPlace/img/스벅3.jpg' %}"
-            alt=""
-          />
-        </div>
-        </div>
-      </div>
+      </main>
+      <div class="mdl-layout__obfuscator"></div>
     </div>
-
-
-    <div class="cafe-info">
-      <div class="cafe-info-left">
-        <div class='cafe-info-left-upper'>
-            <div class="cafe-info-left-name">Remember Me</div>
-            <button class="cafe-info-left-like">❤</button>
-        </div>
-        <div class="cafe-info-brief">루프탑이 매력적인 리멤버미</div>
-      </div>
-      <div class="cafe-info-right">
-        <div class="cafe-info-time">영업시간 : 
-          <span class="cafe-info-timedata info-data">매일 10:00 ~ 22:00</span>
-        </div>
-        <div class="cafe-info-detail">영업 상세 : 
-          <span class="cafe-info-detaildata info-data">둘째주 수요일은 휴무에요.</span>
-        </div>
-        <div class="cafe-phone-number">대표 전화번호 : 
-          <span class="cafe-info-phone-number-data info-data">010 - 2901 - 7730</span>
-        </div>
-      </div>
-    </div>
-    <div class="cafe-info-tags">
-      <img src="{% static 'quietPlace/img/coworking.svg'%}" alt="">
-      <img src="{% static 'quietPlace/img/dining.svg'%}" alt="">
-      <img src="{% static 'quietPlace/img/no-sound.svg'%}" alt="">
-      <img src="{% static 'quietPlace/img/plugging.svg'%}" alt="">
-      <img src="{% static 'quietPlace/img/sanitary.svg'%}" alt="">
-      <img src="{% static 'quietPlace/img/table.svg'%}" alt="">
-      <img src="{% static 'quietPlace/img/water-closet.svg'%}" alt="">
-      <img src="{% static 'quietPlace/img/wifi.svg'%}" alt="">
-    </div>
-    <!-- 리뷰가 두줄 넘어가면 더보기로 바꾸기 -->
-    
-    <div class="cafe-reviews">
-      <div class="reviews-title">
-        <div class="reviews-title-name">리뷰</div>
-        <a href="#" class="write-review">리뷰 작성하러가기</a>
-      </div>
-      <div class="reviews">
-      <div class="card review" style="width: 16rem;">
-        <img src="{% static 'quietPlace/img/스벅1.jpg' %}" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title">자흐니</h5>
-          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
-          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요</p>
-          <a href="#">더보기</a>
-        </div>
-      </div>
-
-      <div class="card review" style="width: 16rem;">
-        <img src="{% static 'quietPlace/img/스벅2.jpg' %}" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title">재흐니</h5>
-          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
-          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요</p>
-          <a href="#">더보기</a>
-        </div>
-      </div>
-
-      <div class="card review" style="width: 16rem;">
-        <img src="{% static 'quietPlace/img/스벅3.jpg' %}" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title">좌흐니</h5>
-          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
-          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요...</p>
-          <a href="#">더보기</a>
-        </div>
-      </div>
-
-      <div class="card review" style="width: 16rem;">
-        <img src="{% static 'quietPlace/img/스벅3.jpg' %}" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title">자흐니</h5>
-          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
-          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요</p>
-          <a href="#">더보기</a>
-        </div>
-      </div>
-
-      <div class="card review" style="width: 16rem;">
-        {% for photo in review.photo_set.all%}
-          <img src="{{photo.image.url}}" class="card-img-top" alt="">
-        {% endfor %}
-        <div class="card-body">
-          <h5 class="card-title">자흐니</h5>
-          <p class="cafe-rate">⭐⭐⭐⭐⭐</p>
-          <p class="card-text">스타벅스 리저브 너무 조아여 라임패션티 맛잇어요</p>
-          <a href="#">더보기</a>
-        </div>
-      </div>
-
-    </div>
-    </div>
-    <div id="map">지도 나올 곳</div>
-{% endblock content %}
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>

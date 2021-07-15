@@ -120,6 +120,29 @@
 }
 
 .review {
+  padding: 20px;
   margin-right: 40px;
   margin-bottom: 20px;
+  background-color: rgb(211, 211, 211);
+  border-radius: 10px;
+  width: 100vw;
+  height: 20vh;
+}
+
+.review-upper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.review-user-profile {
+  margin-right: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.review-user-profile > .profile-img {
+  height: 100%;
+  max-width: 100%;
+  border-radius: 20px;
 }

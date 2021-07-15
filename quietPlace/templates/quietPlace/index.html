@@ -1,4 +1,4 @@
-{% extends 'quietPlace/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load sass_tags %}
 {% block style %}
@@ -9,11 +9,6 @@
     />
 {% endblock style %}
 {% block content %}
-    <section class="vertical-space row">
-        <div class="col-12 mb-3">
-            <div style="height: 100px;"></div>
-        </div>
-    </section>
     <div id="Main_landing">
       <div class="Main_intro container">
         <div id="Main_IntroMsg">오늘도 작업할 곳을 찾아 헤매는 여러분께</div>
@@ -63,8 +58,10 @@
     <div class="container pt-5 pb-5">
       <div class="row">
         <div class="col-6 text-center">
-          <input class="mr-2"></input>
-          <a href="{% url 'cafeList' %}">검색하기</a>
+          <form action="{% url 'cafeList' %}" method="GET">
+            <input type="text" name="search_value" class="mr-2 cafe-search" placeholder="입력"></input>
+            <input type="submit" value="검색하기"/>
+          </form>
         </div>
         <div class="col-6 text-center">
           <a href="{% url 'recommendation' %}">추천받기</a>
@@ -73,3 +70,7 @@
       </div>
     </div>
 {% endblock content %}
+
+{% block js %}
+<script src="{% static 'quietPlace/js/index.js' %}"></script>
+{% endblock js%}

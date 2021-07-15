@@ -5,5 +5,5 @@
 		"cafeList.scss"
 	],
 	"names": [],
-	"mappings": "AAAA,AAAA,UAAU,CAAC;EACP,aAAa,EAAE,IAAI;EACnB,gBAAgB,EAAE,KAAK,GAC1B"
+	"mappings": "AAAA,AAAA,UAAU,CAAC;EACP,aAAa,EAAE,IAAI;EACnB,gBAAgB,EAAE,KAAK;EACvB,KAAK,EAAE,IAAI,GACd"
 }
