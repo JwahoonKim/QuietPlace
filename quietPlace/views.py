@@ -2,7 +2,7 @@ from django.http.request import HttpRequest
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 import quietPlace
-from quietPlace.models import Cafe, Review, Photo, Like, Tag
+from quietPlace.models import Cafe, Review, Cafe_Photo, Like, Tag
 from accounts.models import Profile
 from django.http import JsonResponse
 # JsonResponse 추가가 필요한 경우 아래 코드 추가
@@ -50,14 +50,19 @@ def new_cafe(request):
         cafe_name = request.POST['cafe_name']
         cafe_description = request.POST['cafe_description']
         working_hour = request.POST['working_hour']
+        working_detail = request.POST['working_detail']
         phone = request.POST['phone']
         address = request.POST['address']
         category = request.POST['category']
         region = request.POST['region']
-        ### 카페 모델 만들기 ###
         cafe = Cafe.objects.create(
             cafe_name=cafe_name, cafe_description=cafe_description, working_hour=working_hour, phone=phone, address=address, category=category, region=region
         )
+        for img in request.FILES.getlist('imgs'):
+            cafe_photo = Cafe_Photo()
+            cafe_photo.cafe = cafe
+            cafe_photo.cafe_img = img
+            cafe_photo.save()
 
         chair = request.POST['chair'] 
         table = request.POST['table'] 
