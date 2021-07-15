@@ -17,6 +17,10 @@ def index(request):
 def cafe(request):
     return render(request, 'quietPlace/cafe.html')
 
+def show(request, id):
+    cafe = Cafe.objects.get(id=id)
+    return render(request, 'queitPlace/cafe.html', {'cafe' : cafe})
+
 
 def recommendation(request):
     return render(request, 'quietPlace/recommendation.html')
