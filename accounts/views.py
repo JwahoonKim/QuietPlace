@@ -16,3 +16,6 @@ def signup(request):
 
 def revise(request):
     return render(request, 'accounts/revise.html')
+
+def my_page(request):
+    return render(request, 'accounts/my_page.html')
