@@ -15,10 +15,6 @@ def index(request):
     return render(request, 'quietPlace/index.html')
 
 
-def cafe(request):
-    return render(request, 'quietPlace/cafe.html')
-
-
 def show(request, id):
     cafe = Cafe.objects.get(id=id)
     return render(request, 'quietPlace/cafe.html', {'cafe': cafe})
@@ -29,21 +25,22 @@ def recommendation(request):
 
 
 def my_page(request):
-    return render(request, 'accounts/my_page.html')
+    return render(request, 'quietPlace/my_page.html')
 
 
 def likeCafe(request):
-    return render(request, 'accounts/likeCafeList.html')
+    return render(request, 'quietPlace/likeCafeList.html')
 
 
 def cafeList(request):
-    if request.method == "GET":
+    if request.method == "POST":
         cafes = Cafe.objects.all().filter(
             cafe_name__icontains=request.GET['search_value'])
         return render(request, 'quietPlace/cafeList.html', {"cafes": cafes})
-
     cafes = Cafe.objects.all()
-    return render(request, 'quietPlace/cafeList.html', {"cafes": cafes})
+    tags = ['#의자가 편해요', '#테이블이 커요', '#콘센트가 많아요', '#화장실이 청결해요', '#와이파이 있어요', '#조용해요', 
+            '#공간이 넓어요', '#다인원 토론공간이 있어요', '#예약이 가능해요']
+    return render(request, 'quietPlace/cafeList.html', {"cafes": cafes, "tags": tags})
 
 
 def cafe_review(request):

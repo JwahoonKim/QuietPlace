@@ -10,7 +10,6 @@ import quietPlace
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('cafe/', quietPlace.views.cafe, name='cafe'),
     path('recommendation', quietPlace.views.recommendation, name='recommendation'),
     path('accounts/my_page', quietPlace.views.my_page, name='my_page'),
     path('accounts/likeCafe/', quietPlace.views.likeCafe, name='likeCafe'),
