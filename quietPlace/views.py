@@ -26,7 +26,7 @@ def recommendation(request):
 
 def my_page(request):
     if request.user.is_authenticated:
-        return render(request, 'accounts/my_page.html')
+        return render(request, 'quietPlace/my_page.html')
     else:
         return render(request, 'registration/login.html')
 
