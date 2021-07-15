@@ -14,12 +14,14 @@ from django.http import JsonResponse
 def index(request):
     return render(request, 'quietPlace/index.html')
 
+
 def cafe(request):
     return render(request, 'quietPlace/cafe.html')
 
+
 def show(request, id):
     cafe = Cafe.objects.get(id=id)
-    return render(request, 'quietPlace/cafe.html', {'cafe' : cafe})
+    return render(request, 'quietPlace/cafe.html', {'cafe': cafe})
 
 
 def recommendation(request):
@@ -35,6 +37,11 @@ def likeCafe(request):
 
 
 def cafeList(request):
+    if request.method == "GET":
+        cafes = Cafe.objects.all().filter(
+            cafe_name__icontains=request.GET['search_value'])
+        return render(request, 'quietPlace/cafeList.html', {"cafes": cafes})
+
     cafes = Cafe.objects.all()
     return render(request, 'quietPlace/cafeList.html', {"cafes": cafes})
 
@@ -64,8 +71,8 @@ def new_cafe(request):
             cafe_photo.cafe_img = img
             cafe_photo.save()
 
-        chair = request.POST['chair'] 
-        table = request.POST['table'] 
+        chair = request.POST['chair']
+        table = request.POST['table']
         socket = request.POST['socket']
         bathroom = request.POST['bathroom']
         wifi = request.POST['wifi']
@@ -74,7 +81,7 @@ def new_cafe(request):
         discussion_room = request.POST['discussion_room']
         booking_available = request.POST['booking_available']
         tag = Tag.objects.create(
-            cafe=cafe, chair=chair, table=table, socket=socket, bathroom=bathroom, wifi=wifi, volume=volume, 
+            cafe=cafe, chair=chair, table=table, socket=socket, bathroom=bathroom, wifi=wifi, volume=volume,
             place_size=place_size, discussion_room=discussion_room, booking_available=booking_available
         )
         return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'tag': tag})
