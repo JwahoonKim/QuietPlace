@@ -19,7 +19,7 @@ def cafe(request):
 
 def show(request, id):
     cafe = Cafe.objects.get(id=id)
-    return render(request, 'queitPlace/cafe.html', {'cafe' : cafe})
+    return render(request, 'quietPlace/cafe.html', {'cafe' : cafe})
 
 
 def recommendation(request):
@@ -72,10 +72,9 @@ def new_cafe(request):
         volume = request.POST['volume']
         place_size = request.POST['place_size']
         discussion_room = request.POST['discussion_room']
-        franchise = request.POST['franchise'] 
         booking_available = request.POST['booking_available']
         tag = Tag.objects.create(
             cafe=cafe, chair=chair, table=table, socket=socket, bathroom=bathroom, wifi=wifi, volume=volume, 
-            place_size=place_size, discussion_room=discussion_room, franchise=franchise, booking_available=booking_available
+            place_size=place_size, discussion_room=discussion_room, booking_available=booking_available
         )
         return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'tag': tag})

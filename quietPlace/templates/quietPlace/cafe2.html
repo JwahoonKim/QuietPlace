@@ -13,7 +13,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
     />
-    <title>{{ cafe.cafe_name }}</title>
+    <title>Quiet Place</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes" />
@@ -93,20 +93,19 @@
               class="mdl-color-text--grey-700 mdl-card__supporting-text meta" 
             >
               <div class="cafe-title">
-                <strong>{{ cafe.cafe_name }}</strong>
+                <strong>스벅리저브</strong>
               </div>
               <div class="cafe-star">⭐⭐⭐⭐</div>
               <div class="section-spacer"></div>
               <!-- 좋아요 아이콘 누르면 빨갛게 변하게하기 -->
               <div class="meta__favorites">
-              {% comment %} 425를 cafe.like_users.count()로 바꿔 {% endcomment %}
                 <i class="material-icons" role="presentation">favorite</i> 425
                 <span class="visuallyhidden">favorites</span>
               </div>
             </div>
             <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
               <p>
-                {{ cafe.cafe_description }}
+                RememberMe는 루프탑이 매력적인 카페입니다.
               </p>
               <p>
                 <div class="cafe-info-tags">
@@ -121,16 +120,14 @@
                 </div>
               </p>
               <p>
-                영업 시간 : {{ cafe.working_hour }}
+                영업 시간 : 10:00 ~ 22:00
                 <br>
-                영업 상세 : {{ cafe.working_detail }} 
+                영업 상세 : 마지막 주 수요일은 휴무입니다. 
                 <br>
-                대표 전화 : {{ cafe.phone }}
+                대표 전화 : 010 - 2901 - 7730
               </p>
               <br>
-              
               <p>
-              {% comment %} 아래는 지도가 들어가야해 {% endcomment %}
                 <img src="{% static 'quietPlace/img/리멤버미위치.png'%}" alt="" />
               </p>
             </div>
@@ -149,26 +146,20 @@
               <!-- 실제 댓글들 시작 -->
               <!-- 리뷰가 없다면 리뷰가 없어요 띄워주자! -->
               <div class="reviews">
-                {% for review in cafe.review_set %}
-                  <div class="comment mdl-color-text--grey-700 review">
-                    <header class="comment__header">
-                        <!-- 프로필사진 이미지-->
-                      <img src={% static "forCafe/images/co1.jpg" %}
-                      class="comment__avatar" />
-                      <div class="comment__author">
-                        <strong class="review-nickname">자흐니</strong>
-                      </div>
-                      <div class="review-star">⭐⭐⭐⭐⭐</div>
-                    </header>
-                    <div class="comment__text">
-                      리멤버미는 루프탑이 너무 좋아요.
+                <div class="comment mdl-color-text--grey-700 review">
+                  <header class="comment__header">
+                    <!-- 프로필사진 이미지-->
+                    <img src={% static "forCafe/images/co1.jpg" %}
+                    class="comment__avatar" />
+                    <div class="comment__author">
+                      <strong class="review-nickname">자흐니</strong>
                     </div>
+                    <div class="review-star">⭐⭐⭐⭐⭐</div>
+                  </header>
+                  <div class="comment__text">
+                    리멤버미는 루프탑이 너무 좋아요.
                   </div>
-                {% endfor %%}
-              </div>
-
-              <div class="reviews">
-                
+                </div>
 
                 <div class="comment mdl-color-text--grey-700 review">
                   <header class="comment__header">
