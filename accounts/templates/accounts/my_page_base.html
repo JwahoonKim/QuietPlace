@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cocoon -Portfolio">
+    <meta name="keywords" content="Cocoon , Portfolio">
+    <meta name="author" content="Pharaohlab">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>my_page</title>
+
+    {% load static %} {% load sass_tags %}
+
+    <!-- ========== STYLESHEETS ========== -->
+    <!-- Bootstrap CSS -->
+    <link href={% static "forMypage/css/bootstrap.min.css" %} rel="stylesheet">
+    <!-- Fonts Icon CSS -->
+    <link href={% static "forMypage/css/font-awesome.min.css" %} rel="stylesheet">
+    <link href={% static "forMypage/css/et-line.css" %} rel="stylesheet">
+    <link href={% static "forMypage/css/ionicons.min.css" %} rel="stylesheet">
+    <!-- Carousel CSS -->
+    <link href={% static "forMypage/css/slick.css" %} rel="stylesheet">
+    <!-- Magnific-popup -->
+    <link rel="stylesheet" href={% static "forMypage/css/magnific-popup.css" %}>
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href={% static "forMypage/css/animate.min.css" %}>
+    <!-- Custom styles for this template -->
+    <link href={% static "forMypage/css/main.css" %} rel="stylesheet">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <style>
+    .demo-layout-transparent {
+      background: url('../assets/demos/transparent.jpg') center / cover;
+    }
+    .demo-layout-transparent .mdl-layout__header,
+    .demo-layout-transparent .mdl-layout__drawer-button {
+      /* This background is dark, so we set text to white. Use 87% black instead if
+        your background is light. */
+      color: white;
+    }
+    </style>
+
+</head>
+<body>
+
+<div class="body-container container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-2 col-md-3 col-12 menu_block">
+            <div class="side_menu_section">
+                <a class="navbar-brand" href="{% url 'index' %}">Quiet Place</a>
+                <ul class="menu_nav">
+                    <li>&nbsp;&nbsp;{{ user.get_nickname }}님, 안녕하세요</li>
+                    <li><a href={% url 'likeCafe' %}>내가 찜한 공간 보기</a></li>
+                    <li><a href={% url 'revise' %}>정보 수정</a></li>
+                    <li><a href="">로그아웃하기</a></li>
+                </ul>
+            </div>
+        </div>
+        <main class="mdl-layout__content">
+        {% block content %} {% endblock content %}
+        </main>
+    </div>
+</div>
+
+
+  <!-- jquery -->
+  <script src={% static "forMypage/js/jquery.min.js" %}></script>
+  <!-- bootstrap -->
+  <script src={% static "forMypage/js/popper.js" %}></script>
+  <script src={% static "forMypage/js/bootstrap.min.js" %}></script>
+  <script src={% static "forMypage/js/waypoints.min.js" %}></script>
+  <!--slick carousel -->
+  <script src={% static "forMypage/js/slick.min.js" %}></script>
+  <!-- Magnific-popup -->
+  <script src={% static "forMypage/js/jquery.magnific-popup.min.js" %}></script>
+  <!--Counter-->
+  <script src={% static "forMypage/js/jquery.counterup.min.js" %}></script>
+  <!-- WOW JS -->
+  <script src={% static "forMypage/js/wow.min.js" %}></script>
+  <!-- Custom js -->
+  <script src={% static "forMypage/js/main.js" %}></script>
+</body>
+</html>
