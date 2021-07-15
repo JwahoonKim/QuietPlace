@@ -21,7 +21,7 @@
   <body>
     <div class="container">
       <div class="container-fluid mt-5 mb-5"><h1>카페 추가하기</h1></div>
-      <form id="newcafe-form" method="POST" action="{%url 'new_cafe' %}">
+      <form id="newcafe-form" method="POST" action="{% url 'new_cafe' %}">
         {% csrf_token %}
         <div class="container-fluid mb-5"><p>카페명</p><input type='text' placeholder='카페명' name='cafe_name'/></div>
         <div class="container-fluid mb-5"><p>운영 시간</p><input type='textarea' placeholder='ex 월화수목금 10:00~22:00' name='working_hour'/></div>

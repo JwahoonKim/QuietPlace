@@ -12,7 +12,8 @@ body {
   color: white; }
 
 #Main_landing {
-  height: 100vh;
+  margin-top: 30vh;
+  height: 70vh;
   width: 100vw;
   display: flexbox;
   justify-content: center; }
