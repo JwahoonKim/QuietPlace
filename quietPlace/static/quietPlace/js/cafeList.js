@@ -1,16 +1,24 @@
 let filterCondition = [];
 
-const handleCafe = () => {
-    const selectedTag = [];
+const handleCafe = (switching) => {
     const getCafe = () => {
         return [... document.querySelectorAll('.cafe-box')];
     }
 
-    // console.log(getCafe()[0].getElementsByTagName('li'));
-    const filtering = () => {
+    // 태그를 on 했을 경우 
+    const onFiltering = () => {
         filterCondition.forEach((tag_positive) => {
             HideNotPositiveCafe(tag_positive);
         })
+    }
+
+    // 태그를 off 했을 경우
+    const offFiltering = () => {
+        const cafes = getCafe();
+        cafes.forEach(cafe => {
+            cafe.classList.remove('hide');
+        })
+        onFiltering();
     }
 
     const getTagList = (cafe) => {
@@ -18,8 +26,8 @@ const handleCafe = () => {
     }
 
     const isTagPositive = (cafe, tag_positive) => {
-        cafeTagList = getTagList(cafe);
-        for(i = 0; i < cafeTagList.length; i++){
+        let cafeTagList = getTagList(cafe);
+        for(let i = 0; i < cafeTagList.length; i++){
             if (cafeTagList[i].classList.contains(tag_positive)) {
                 return true;
             }
@@ -31,7 +39,7 @@ const handleCafe = () => {
     }
 
     const HideNotPositiveCafe = (tag_positive) => {
-        cafes = getCafe();
+        let cafes = getCafe();
         cafes.forEach( cafe => {
             if (isTagPositive(cafe, tag_positive) === false){
                 cafe.classList.add('hide');
@@ -39,7 +47,8 @@ const handleCafe = () => {
         })
     }
 
-    filtering();
+    if (switching === "ON") onFiltering();
+    else offFiltering();
 }
 
 const handleTag = () => {
@@ -53,12 +62,12 @@ const handleTag = () => {
             if (tagDom.classList.contains('selected')) {
                 tagDom.classList.remove('selected');
                 filterCondition = filterCondition.filter(tag => tag !== `${tagDom.id}_positive`)
+                handleCafe("OFF");
             }
             else {
                 tagDom.classList.add('selected');
                 filterCondition.push(`${tagDom.id}_positive`);
-                handleCafe();
-                console.log(filterCondition)
+                handleCafe('ON');
             }
         }
     }
