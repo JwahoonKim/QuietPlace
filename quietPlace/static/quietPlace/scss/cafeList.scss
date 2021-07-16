@@ -1,3 +1,11 @@
+.cafe-container{
+  .cafe-box {
+    &.hide {
+      display: none;
+    }
+  }
+}
+
 .cafe-post {
   border-radius: 20px;
   background-color: white;
@@ -9,3 +17,4 @@
   background-color: grey;
   color: #ff689f;
 }
+
