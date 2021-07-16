@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% load sass_tags %} 
+{% extends 'base.html' %} {% load static %} {% load sass_tags %}
 {% block style %}
 <link
   rel="stylesheet"
@@ -10,15 +10,15 @@
 {% block content %}
 <div class="container" style="height: 100px"></div>
 <div class="tag-container mt-5 container-fluid text-center">
-  {% for tag in tags %}
+  {% for tag_button in tag_buttons %}
   <button
-    id="{{tag.1}}"
+    id="{{tag_button.1}}"
     type="button"
-    class="btn btn-outline-secondary filter-tag"
+    class="btn btn-outline-secondary filter-tag-button"
     data-bs-toggle="button"
     autocomplete="off"
   >
-    {{tag.0}}
+    {{tag_button.0}}
   </button>
   {% endfor %}
 </div>
@@ -39,10 +39,22 @@
             {{ cafe.cafe_name }}
           </h5>
           <h6>{{ cafe.cafe_description }}</h6>
+          
+          
+          
           <ul class="list-group">
-            <li class="list-group-item">음량 아이콘: 조용해요</li>
+            {% for tag in tags %}
+              {% if tag.cafe.id == cafe.id %}
+                <li class="list-group-item">#의자가 {{tag.chair}} </li class="list-group-item">
+                <li class="list-group-item">#테이블이 {{tag.table}}</li class="list-group-item">
+              {% endif %}
+            {% endfor %}
+            {% comment %} {% for  in cafe.tag %}
+            <li class="list-group-item">tag.chair </li> {% endcomment %}
+            {% comment %} <li class="list-group-item">음량 아이콘: 조용해요</li>
             <li class="list-group-item">의자 아이콘: 편안해요</li>
-            <li class="list-group-item">아메리카노 아이콘: 3500원</li>
+            <li class="list-group-item">아메리카노 아이콘: 3500원</li> {% endcomment %}
+            {% comment %} {% endfor %} {% endcomment %}
           </ul>
         </div>
       </div>
