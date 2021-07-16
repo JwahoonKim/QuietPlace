@@ -12,7 +12,7 @@ class Cafe(models.Model):
     cafe_description = models.TextField(blank=True, null=True)
     working_hour = models.CharField(max_length=100, blank=True, null=True)
     working_detail = models.TextField(blank=True, null=True)
-    phone = models.CharField(max_length=12, blank=True, null=True)
+    phone = models.CharField(max_length=20, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
     region = models.TextField(blank=True, null=True)
     category = models.TextField(blank=True, null=True)
@@ -45,13 +45,18 @@ class Review(models.Model):
     def __str__(self):
         return f'[cafe: {self.cafe}], {self.content}'
 
+
 class Cafe_Photo(models.Model):
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE, null=True)
-    cafe_img = models.ImageField(upload_to='images/cafe_pic', blank=True, null=True)
+    cafe_img = models.ImageField(
+        upload_to='images/cafe_pic', blank=True, null=True)
+
 
 class Review_Photo(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE, null=True)
-    review_img = models.ImageField(upload_to='images/review_pic', blank=True, null=True)
+    review_img = models.ImageField(
+        upload_to='images/review_pic', blank=True, null=True)
+
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -73,4 +78,3 @@ class Tag(models.Model):
 
     def __str__(self):
         return f'[cafe: {self.cafe}], {self.content}'
-
