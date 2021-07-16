@@ -3,4 +3,8 @@
   background-color: white;
   width: 22vw; }
 
+.selected {
+  background-color: grey;
+  color: #ff689f; }
+
 /*# sourceMappingURL=cafeList.css.map */

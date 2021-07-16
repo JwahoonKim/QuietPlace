@@ -1,11 +1,12 @@
-{% extends 'base.html' %} {% load static %} {% load sass_tags %}
-<!-- {% block style %}
+{% extends 'base.html' %} {% load static %} {% load sass_tags %} 
+{% block style %}
 <link
   rel="stylesheet"
   type="text/css"
   href="{% sass_src 'quietPlace/scss/cafeList.scss' %}"
 />
-{% endblock style %} -->
+{% endblock style %}
+
 {% block content %}
 <div class="container" style="height: 100px"></div>
 <div class="tag-container mt-5 container-fluid text-center">
@@ -13,7 +14,7 @@
   <button
     id="{{tag.1}}"
     type="button"
-    class="btn btn-outline-secondary"
+    class="btn btn-outline-secondary filter-tag"
     data-bs-toggle="button"
     autocomplete="off"
   >
@@ -49,4 +50,5 @@
     {% endfor %}
   </div>
 </div>
+<script src={% static "quietPlace/js/cafeList.js" %}></script>
 {% endblock content %}
