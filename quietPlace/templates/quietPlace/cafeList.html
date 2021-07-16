@@ -5,9 +5,10 @@
   type="text/css"
   href="{% sass_src 'quietPlace/scss/cafeList.scss' %}"
 />
-{% endblock style %} {% block content %}
-<div class="container" style="height:100px;">
-</div>
+{% endblock style %}
+
+{% block content %}
+<div class="container" style="height:100px;"></div>
 <div class="tag-container mt-5 container-fluid text-center">
   {% for tag in tags %}
   <button type="button" class="btn btn-outline-secondary" data-bs-toggle="button" autocomplete="off">{{tag}}</button>
