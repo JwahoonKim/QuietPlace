@@ -24,6 +24,7 @@
 </div>
 <div class="container-fluid mt-5">
   <div class="row row-cols-4 ml-auto">
+  
     {% for cafe in cafes %}
     <div class="col gy-5">
       <div class="card cafe-post">
@@ -40,14 +41,37 @@
           </h5>
           <h6>{{ cafe.cafe_description }}</h6>
           
-          
-          
           <ul class="list-group">
             {% for tag in tags %}
               {% if tag.cafe.id == cafe.id %}
-                <li class="list-group-item">#의자가 {{tag.chair}} </li class="list-group-item">
-                <li class="list-group-item">#테이블이 {{tag.table}}</li class="list-group-item">
-              {% endif %}
+                {% if tag.chair|slice:"-8:" == "positive" %}
+                <li class="list-group-item chair_positive">#의자가 {{tag.chair|slice:":-10"}} </li class="list-group-item">
+                {% endif %}
+                {% if tag.table|slice:"-8:" == "positive" %}
+                <li class="list-group-item table_positive">#테이블이 {{tag.table|slice:":-10"}} </li class="list-group-item">
+                {% endif %}
+                {% if tag.socket|slice:"-8:" == "positive" %}
+                <li class="list-group-item socket_positive">#콘센트가 {{tag.socket|slice:":-10"}} </li class="list-group-item">
+                {% endif %}
+                {% if tag.bathroom|slice:"-8:" == "positive" %}
+                <li class="list-group-item bathroom_positive">#화장실이 {{tag.bathroom|slice:":-10"}} </li class="list-group-item">
+                {% endif %}
+                {% if tag.wifi|slice:"-8:" == "positive" %}
+                <li class="list-group-item wifi_positive">#와이파이가 {{tag.wifi|slice:":-10"}} </li class="list-group-item">
+                {% endif %}
+                {% if tag.volume|slice:"-8:" == "positive" %}
+                <li class="list-group-item volume_positive">#{{tag.volume|slice:":-10"}} </li class="list-group-item">
+                {% endif %}
+                {% if tag.place_size|slice:"-8:" == "positive" %}
+                <li class="list-group-item place_size_positive">#{{tag.place_size|slice:":-10"}} </li class="list-group-item">
+                {% endif %}
+                {% if tag.discussion_room|slice:"-8:" == "positive" %}
+                <li class="list-group-item discussion_room_positive">#다인원 토론공간이 {{tag.discussion_room|slice:":-10"}} </li class="list-group-item">
+                {% endif %}
+                {% if tag.booking_available|slice:"-8:" == "positive" %}
+                <li class="list-group-item booking_available_positive">#예약이 {{tag.booking_available|slice:":-10"}} </li class="list-group-item">
+                {% endif %}
+                {% endif %}
             {% endfor %}
             {% comment %} {% for  in cafe.tag %}
             <li class="list-group-item">tag.chair </li> {% endcomment %}
