@@ -1,73 +1,136 @@
 {% extends 'base.html' %}
-{% load static %}
-{% load sass_tags %}
+{% load static %} {% load sass_tags %}
+
 {% block style %}
-  <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% sass_src 'quietPlace/scss/index.scss' %}"
-    />
 {% endblock style %}
+
 {% block content %}
-    <div id="Main_landing">
-      <div class="Main_intro container">
-        <div id="Main_IntroMsg">오늘도 작업할 곳을 찾아 헤매는 여러분께</div>
-        <div id="Main_QP"><a>Quiet Place</a></div>
-      </div>
-      <div id="Main_Button_Container">
-          <button>바로 시작하기</button>
-      </div>
+<div class="android-content mdl-layout__content">
+<!--1. 첫화면 시작-->
+  <div class="android-be-together-section mdl-typography--text-center" id="top">
+    <div class="logo-font android-slogan">Quiet Place</div>
+    <div class="logo-font android-sub-slogan">오늘도 작업할 공간을 찾아 헤매는 당신께</div>
+    <div class="logo-font android-create-character mainpage-button">
+      <button>
+        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="#Main_Introduction">
+          Quiet Place가 궁금해요!</a>
+      </button>
+      <button>
+        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" href="#Main_Recommendation">
+          바로 시작하기</a>
+      </button>
     </div>
-    <!--여기까지 랜딩 페이지1-->
-    <div id="Main_Introduction" class="container-fluid pt-5">
-    <section class="vertical-space row" style="background-color:black;">
-        <div class="col-12 mb-3">
-            <div style="height: 100px;"></div>
+  </div>
+
+<!--2. introduction section 시작-->
+  <div class="android-wear-section android-wear-band" id="Main_Introduction">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src={% static "forHeader/images/woman.jpg" %} class="d-block w-100" alt="..." style="width:100%">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
         </div>
-    </section>
-    <div class="text-center">
-      <h1 class="mb-5 mt-5">Quiet Place</h1>
-      <p class="mb-5">
-        온전히 일에 집중할 수 있는 쾌적한 작업 공간 큐레이팅 서비스<br />
-        여러분은 작업만 하세요, 장소는 콰이어트 플레이스가 찾아드립니다.
+        <div class="carousel-item">
+          <img src={% static "forHeader/images/office.jpg" %} class="d-block w-100" alt="..." style="width:100%">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src={% static "forHeader/images/writing.jpg" %} class="d-block w-100" alt="..." style="width:100%">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="android-wear-band-text">
+      <div class="mdl-typography--display-2 mdl-typography--font-thin">당신의 취향을 생각하는 작업공간 큐레이팅 서비스</div>
+      <p class="mdl-typography--headline mdl-typography--font-thin">
+        <p>카페부터 공유오피스까지, 우리 지역에서 내가 작업할 수 있는 공간은?</p>
+        <p>당신은 필요한 일만 해요. 검색은 Quiet Place가 할게요!</p>
       </p>
     </div>
-    <div class="container pt-5 pb-5">
-      <div class="row">
-        <div class="col-4 g">
-          <img src="https://www.jeongdong.or.kr/static/portal/img/HKPU_04_04_pic1.jpg" class="card-img-top img-rounded intro-img" alt="...">
-        </div>
-        <div class="col-4">
-          <img src="https://www.jeongdong.or.kr/static/portal/img/HKPU_04_04_pic1.jpg" class="card-img-top img-rounded intro-img" alt="...">
-        </div>
-        <div class="col-4">
-          <img src="https://www.jeongdong.or.kr/static/portal/img/HKPU_04_04_pic1.jpg" class="card-img-top img-rounded intro-img" alt="...">
-        </div>
+  </div>
+<!--3. 사진 세개 section 시작-->
+  <div class="android-screen-section mdl-typography--text-center" id="Main_Recommendation">
+    <div class="mdl-typography--display-1-color-contrast">내게 맞는 공간 추천받기</div>
+    <img class="mainpage-arrow" src={% static "forHeader/images/arrow.png"%}>
+    <div class="android-screens">
+      <div class="android-tv android-screen">
+        <a class="android-image-link" href={% url 'cafeList' %}>
+          <img class="android-screen-image" src={% static "forHeader/images/writing.jpg" %}>
+        </a>
+      </div>
+      <div class="android-tv android-screen">
+        <a class="android-image-link" href={% url 'cafeList' %}>
+          <img class="android-screen-image" src={% static "forHeader/images/writing.jpg" %}>
+        </a>
+      </div>
+      <div class="android-tv android-screen">
+        <a class="android-image-link" href={% url 'cafeList' %}>
+          <img class="android-screen-image" src={% static "forHeader/images/writing.jpg" %}>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<!--footer 시작-->
+  <footer class="android-footer mdl-mega-footer">
+    <div class="mdl-mega-footer--top-section">
+      <div class="mdl-mega-footer--left-section">
+        <button class="mdl-mega-footer--social-btn"></button>
+        &nbsp;
+        <button class="mdl-mega-footer--social-btn"></button>
+        &nbsp;
+        <button class="mdl-mega-footer--social-btn"></button>
+      </div>
+      <div class="mdl-mega-footer--right-section">
+        <a class="mdl-typography--font-light" href="#top">
+          Back to Top
+          <i class="material-icons">expand_less</i>
+        </a>
       </div>
     </div>
 
-
-    <section class="vertical-space row" style="background-color:black;">
-        <div class="col-12 mb-3">
-            <div style="height: 100px;"></div>
-        </div>
-    </section>
-    <div class="container pt-5 pb-5">
-      <div class="row">
-        <div class="col-6 text-center">
-          <form action="{% url 'cafeList' %}" method="GET">
-            <input type="text" name="search_value" class="mr-2 cafe-search" placeholder="입력"></input>
-            <input type="submit" value="검색하기"/>
-          </form>
-        </div>
-        <div class="col-6 text-center">
-          <a href="{% url 'recommendation' %}">추천받기</a>
-        </div>
-        <div class=""></div>
-      </div>
+    <div class="mdl-mega-footer--middle-section">
+      <p class="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
     </div>
+    <div class="mdl-mega-footer--bottom-section">
+      <img class="footer-likelion-logo" src={% static "forHeader/images/profile.png" %}>
+      <a class="android-link android-link-menu mdl-typography--font-light" id="developers-dropdown">
+        개발자 괴롭히기..!
+        <i class="material-icons">arrow_drop_up</i>
+      </a>
+      <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="developers-dropdown">
+        <li class="mdl-menu__item">김좌훈</li>
+        <li class="mdl-menu__item">박평재</li>
+        <li class="mdl-menu__item">이지우 wooyou07@snu.ac.kr</li>
+      </ul>
+      <a class="android-link mdl-typography--font-light" href="#">나만의 공간 등록 신청하기</a>
+    </div>
+  </footer>
+</div>
+
 {% endblock content %}
-
 {% block js %}
-<script src="{% static 'quietPlace/js/index.js' %}"></script>
+  <script type="text/javascript" src={% static 'quietPlace/js/index.js' %}></script>
 {% endblock js%}
