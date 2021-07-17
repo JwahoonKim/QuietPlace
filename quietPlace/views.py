@@ -41,11 +41,10 @@ def cafeList(request):
             cafe_name__icontains=request.GET['search_value'])
         return render(request, 'quietPlace/cafeList.html', {"cafes": cafes})
     cafes = Cafe.objects.all()
-    tags = Tag.objects.all()
 
-    tag_buttons = [['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#와이파이 있어요', 'wifi'], ['#조용해요', 'volume'],
+    tag_buttons = [['#서울대입구역', '서울대입구역'], ['#대학동', '대학동'], ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#와이파이 있어요', 'wifi'], ['#조용해요', 'volume'],
                    ['#공간이 넓어요', 'place_size'], ['#다인원 토론공간이 있어요', 'discussion_room'], ['#예약이 가능해요', 'booking_available']]
-    return render(request, 'quietPlace/cafeList.html', {"cafes": cafes, "tag_buttons": tag_buttons, "tags": tags})
+    return render(request, 'quietPlace/cafeList.html', {"cafes": cafes, "tag_buttons": tag_buttons})
 
 
 def cafe_review(request):

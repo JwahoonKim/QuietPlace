@@ -6,6 +6,7 @@
   }
 }
 
+
 .cafe-post {
   border-radius: 20px;
   background-color: white;
@@ -16,5 +17,15 @@
 .selected {
   background-color: grey;
   color: #ff689f;
+}
+
+.card-title-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title-region {
+  margin-bottom: .75rem;
 }
 
