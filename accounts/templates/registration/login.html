@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +33,14 @@
                             <input type="submit" name="submit" id="submit" class="form-submit" value="로그인"/>
                         </div>
                     </form>
+                    <div class="social-login">
+                        <a class="mdl-navigation__link" href="{% provider_login_url 'google' %}">
+                            <img src="{% static 'accounts/img/btn_google_signin_dark_focus_web@2x.png' %}" style="height: auto; width: 200px;"/>
+                        </a>
+                        <a class="mdl-navigation__link" href="{% provider_login_url 'naver'%}">
+                            <img src="{% static 'accounts/img/btnG_완성형.png' %}" style="height: auto; width: 200px;"/>
+                        </a>
+                    </div>
                 </div>
                 <p class="loginhere">
                     계정이 없나요? <a href="{% url 'signup' %}" class="loginhere-link">Sign Up</a>
