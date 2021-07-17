@@ -35,12 +35,10 @@ class Review(models.Model):
     cafe = models.ForeignKey(Cafe, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-    # like_users는 넣어야할 필드인지 잘 모르겟네?
-    # like_users = models.ManyToManyField(
-    #     User, blank=True, related_name='like_comments')
     star = models.IntegerField(
         default=1,
-        validators=[MaxValueValidator(5), MinValueValidator(1)])
+        validators=[MaxValueValidator(5), MinValueValidator(1)],
+        blank=True, null=True)
 
     def __str__(self):
         return f'[cafe: {self.cafe}], {self.content}'
