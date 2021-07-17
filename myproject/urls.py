@@ -30,4 +30,5 @@ urlpatterns = [
     path('accounts/signup/', accounts.views.signup, name='signup'),
     path('accounts/revise/', accounts.views.revise, name='revise'),
     url('change_password/', accounts.views.change_password, name='change_password'),
+    path('social_accounts/', include('allauth.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

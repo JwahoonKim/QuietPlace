@@ -1,5 +1,31 @@
-.cafe-post {
-    border-radius: 20px;
-    background-color: white;
-    width: 22vw;
+.cafe-container{
+  .cafe-box {
+    &.hide {
+      display: none;
+    }
+  }
 }
+
+
+.cafe-post {
+  border-radius: 20px;
+  background-color: white;
+  width: 22vw;
+}
+
+// 추후 이 색깔도 카페 컨셉에 맞게 변경
+.selected {
+  background-color: grey;
+  color: #ff689f;
+}
+
+.card-title-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title-region {
+  margin-bottom: .75rem;
+}
+
