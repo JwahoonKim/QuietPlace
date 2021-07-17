@@ -1,21 +1,9 @@
+{% extends 'base.html' %}
 {% load static %} {% load sass_tags %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="description"
-      content="A front-end template that helps you build fast, modern mobile web apps."
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
-    />
-    <title>{{ cafe.cafe_name }}</title>
-
+  {% block style %}
     <!-- Add to homescreen for Chrome on Android -->
+
     <meta name="mobile-web-app-capable" content="yes" />
     <link rel="icon" sizes="192x192" href={% static
     'forCafe/images/touch/chrome-touch-icon-192x192.png' %} />
@@ -67,13 +55,17 @@
         z-index: 900;
       }
     </style>
+  {% endblock style %}
+
+  {% block js%}
     <!-- 네이버 지도를 위한 코드 -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=u2k6flryoy"></script>
     <!-- 주소를 사용해 위도 경도를 알아내기 위한 모듈 -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=u2k6flryoy&submodules=geocoder"></script>
-  </head>
+  {% endblock js%}
 
-  <body>
+
+  {% block content %}
     <div>
     <div
       class="
@@ -213,5 +205,4 @@
           }); 
       });
     </script>
-  </body>
-</html>
+  {% endblock content %}
