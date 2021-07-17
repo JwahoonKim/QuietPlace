@@ -67,6 +67,10 @@
         z-index: 900;
       }
     </style>
+    <!-- 네이버 지도를 위한 코드 -->
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=u2k6flryoy"></script>
+    <!-- 주소를 사용해 위도 경도를 알아내기 위한 모듈 -->
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=u2k6flryoy&submodules=geocoder"></script>
   </head>
 
   <body>
@@ -131,7 +135,8 @@
               
               <p>
               {% comment %} 아래는 지도가 들어가야해 {% endcomment %}
-                <img src="{% static 'quietPlace/img/리멤버미위치.png'%}" alt="" />
+                <div id="map" style="width:400px;height:400px;"></div>
+                <!-- <img src="{% static 'quietPlace/img/리멤버미위치.png'%}" alt="" /> -->
               </p>
             </div>
             <!-- 댓글 관련 div 시작 -->
@@ -180,5 +185,33 @@
       <div class="mdl-layout__obfuscator"></div>
     </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    
+    <script>
+      naver.maps.Service.geocode({
+          address: '쑥고개로 123'
+      }, function(status, response) {
+          if (status !== naver.maps.Service.Status.OK) {
+              return alert('주소가 잘못됐나보다..');
+          }
+
+          const result = response.result; // 검색 결과의 컨테이너
+          const items = result.items[0]; // 검색 결과의 배열
+          
+          const w = items.point.y;
+          const g = items.point.x;
+          
+          const mapOptions = {
+            center: new naver.maps.LatLng(w, g),
+            zoom: 16
+          };
+
+          const map = new naver.maps.Map('map', mapOptions);
+
+          const marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(w, g),
+            map: map
+          }); 
+      });
+    </script>
   </body>
 </html>
