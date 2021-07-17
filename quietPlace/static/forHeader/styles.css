@@ -83,6 +83,8 @@ a img{
   }
 
 
+/* 첫페이지 */
+
 .android-be-together-section {
   position: relative;
   height: 100vh;
@@ -120,10 +122,14 @@ a img{
     font-weight: 300;
   }
 
+/* 세번째 페이지 */
+
 .android-screen-section {
   position: relative;
   padding-top: 60px;
   padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
 }
 
 .android-screens {
@@ -131,10 +137,22 @@ a img{
   width: 100%;
   white-space: nowrap;
   overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  margin-top: 3%;
 }
 
 .android-screen {
   text-align: center;
+}
+
+
+.mainpage-arrow {
+  height: 5%;
+  width: 5%;
+  display: block;
+  margin: 0px auto;
 }
 
 .android-screen .android-link {
@@ -160,19 +178,34 @@ a img{
   }
 
 
+/* 두번째 페이지 */
+
 .android-wear-section {
   position: relative;
-  background: url('forHeader/images/woman.jpg') center top no-repeat;
   background-size: cover;
   height: 100vh;
 }
 
 .android-wear-band {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
+  height: 125%;  /* 이거 임의설정함. 확대시 문제 해결하려면 바꾸기 */
   text-align: center;
   background-color: #37474f;
+}
+
+.carousel-item {
+  height: 80vh;
+  width: auto;
+  overflow:hidden;
+  margin:0 auto;
+}
+
+.d-block {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .android-wear-band-text {
@@ -395,4 +428,9 @@ a img{
   .android-footer .mdl-mega-footer--bottom-section {
     display: none;
   }
+}
+
+.footer-likelion-logo {
+  height: 50px;
+  width: 50px;
 }
