@@ -5,7 +5,6 @@
   type="text/css"
   href="{% sass_src 'quietPlace/scss/cafeList.scss' %}"
 />
-
 {% endblock style %}
 
 {% block content %}
@@ -27,7 +26,7 @@
   <div class="row row-cols-4 ml-auto cafe-container">
 
     {% for cafe in cafes %}
-    <div id="{{cafe.id}}-cafe-box" class=col" gy-5 cafe-box">
+    <div id="{{cafe.id}}-cafe-box" class="col gy-5 cafe-box">
       <div class="card cafe-post">
         <a href="{% url 'cafe' id=cafe.id %}">
           <img

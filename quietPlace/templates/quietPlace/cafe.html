@@ -44,7 +44,7 @@
       href="https://code.getmdl.io/1.3.0/material.grey-orange.min.css"
     />
     <link rel="stylesheet" href={% sass_src "forCafe/scss/styles.scss" %}/>
-    <link rel="stylesheet" href="{% static 'quietPlace/scss/cafe.scss' %}"
+    <link rel="stylesheet" href={% sass_src 'quietPlace/scss/cafe.scss' %}/>
 
   {% endblock style %}
 
@@ -88,7 +88,7 @@
               <div class="meta__favorites like-container">
               {% if user.is_authenticated %}
                 <a style="color: #616161"
-                  href="#" id='{{cafe.id}}-like-button' onclick="onClickLikeButton({{cafe.id}})"
+                  href="#" id='{{ cafe.id }}-like-button' onclick="onClickLikeButton({{cafe.id}})"
                 > 
                   {% if user in cafe.like_users.all %}
                     <i class="material-icons" role="presentation" style="color: #dc3545;">favorite</i> <span id="cafe-count">{{ cafe.like_users.count }}</span>
@@ -102,37 +102,36 @@
                 
               </div>
             </div>
-            <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
-              <p>
-                {{ cafe.cafe_description }}
-              </p>
-              <p>
-                <div class="cafe-info-tags">
-                  <img src="{% static 'quietPlace/img/coworking.svg'%}" alt="">
-                  <img src="{% static 'quietPlace/img/dining.svg'%}" alt="">
-                  <img src="{% static 'quietPlace/img/no-sound.svg'%}" alt="">
-                  <img src="{% static 'quietPlace/img/plugging.svg'%}" alt="">
-                  <img src="{% static 'quietPlace/img/sanitary.svg'%}" alt="">
-                  <img src="{% static 'quietPlace/img/table.svg'%}" alt="">
-                  <img src="{% static 'quietPlace/img/water-closet.svg'%}" alt="">
-                  <img src="{% static 'quietPlace/img/wifi.svg'%}" alt="">
-                </div>
-              </p>
-              <p>
-                영업 시간 : {{ cafe.working_hour }}
-                <br>
-                영업 상세 : {{ cafe.working_detail }} 
-                <br>
-                대표 전화 : {{ cafe.phone }}
-              </p>
-              <br>
-              
-              <p>
+            <div class="cafe_box">
+              <div class="cafe-description-box">  
+                <h3>카페 소개</h3>
+                <p>
+                  {{ cafe.cafe_description }}
+                </p>
+              </div>
+              <div class="cafe-detail-box">
+                <h3>상세 정보</h3>
+                <p>
+                  영업 시간 : {{ cafe.working_hour }}
+                  <br>
+                  영업 상세 : {{ cafe.working_detail }} 
+                  <br>
+                  대표 전화 : {{ cafe.phone }}
+                </p>
+              </div>
+              <h3>태그 정보</h3>
+              <div class="cafe-tags">
+                  <img class="cafe_tag_icon" src="{% static 'quietPlace/img/coworking.svg'%}" alt="">
+                  <img class="cafe_tag_icon" src="{% static 'quietPlace/img/dining.svg'%}" alt="">
+                  <img class="cafe_tag_icon" src="{% static 'quietPlace/img/no-sound.svg'%}" alt="">
+                  <img class="cafe_tag_icon" src="{% static 'quietPlace/img/plugging.svg'%}" alt="">
+                  <img class="cafe_tag_icon" src="{% static 'quietPlace/img/sanitary.svg'%}" alt="">
+                  <img class="cafe_tag_icon" src="{% static 'quietPlace/img/table.svg'%}" alt="">
+                  <img class="cafe_tag_icon" src="{% static 'quietPlace/img/wifi.svg'%}" alt="">
+              </div>  
               {% comment %} 아래는 지도가 들어가야해 {% endcomment %}
-                <div id="map" style="width:400px;height:400px;"></div>
+              <div id="map" style="width:400px;height:400px;"></div>
                 <!-- <img src="{% static 'quietPlace/img/리멤버미위치.png'%}" alt="" /> -->
-              </p>
-            </div>
             <!-- 댓글 관련 div 시작 -->
             <div
               class="
@@ -150,7 +149,7 @@
                   <input class="form-control" id="review-input" type="text" style="height: 100px" id="review-input" name="content"></input>
                   <label for="review-input">Review</label>
                 </div>
-                <button class="btn btn-secondary review-submit-button" onclick="onCreateReview({{cafe.id}})">작성하기</button>
+                <button class="review-submit-button" onclick="onReviewCreate({{cafe.id}})">작성하기</button>
                 <br>
               {% endif %}
               <!-- 실제 댓글들 시작 -->
@@ -217,6 +216,5 @@
           }); 
       });
     </script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{%static 'quietPlace/js/cafe.js'%}"></script>
   {% endblock content %}
