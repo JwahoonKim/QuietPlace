@@ -1,0 +1,16 @@
+{% extends 'quietPlace/my_page_base.html' %}
+
+{% block content %}
+  <h1> 프로필 변경하기 </h1>
+    <form method="POST" action="{% url 'revise' %}">
+      {% csrf_token %}
+      프로필사진 : 
+      닉네임 : 
+      <br>
+      <input name="nickname" type="text" value="{{ user.profile.nickname }}">
+      <br>
+      <br>
+      <input type="submit" value="변경하기">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QuietPlace</title>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href={% static "forLogin/fonts/material-icon/css/material-design-iconic-font.min.css" %}>
+    <!-- Main css -->
+    <link rel="stylesheet" href={% static "forLogin/css/login.css" %}>
+</head>
+<body>
+    <div class="main">
+        <section class="login">
+            <div class="container">
+                <div class="login-content">
+                    <form method="POST" id="login-form" class="login-form" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <h2 class="form-title">로그인</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="username" id="username" placeholder="아이디"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="password" id="password" placeholder="Password"/>
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="로그인"/>
+                        </div>
+                    </form>
+                    <div class="social-login">
+                        <a class="mdl-navigation__link" href="{% provider_login_url 'google' %}">
+                            <img src="{% static 'accounts/img/btn_google_signin_dark_focus_web@2x.png' %}" style="height: auto; width: 200px;"/>
+                        </a>
+                        <a class="mdl-navigation__link" href="{% provider_login_url 'naver'%}">
+                            <img src="{% static 'accounts/img/btnG_완성형.png' %}" style="height: auto; width: 200px;"/>
+                        </a>
+                    </div>
+                </div>
+                <p class="loginhere">
+                    계정이 없나요? <a href="{% url 'signup' %}" class="loginhere-link">Sign Up</a>
+                </p>
+            </div>
+        </section>
+    </div>
+    <!-- JS -->
+    <script src={% static "forLogin/vendor/jquery/jquery.min.js" %}></script>
+    <script src={% static "forLogin/js/main.js" %}></script>
+</body>
+</html>

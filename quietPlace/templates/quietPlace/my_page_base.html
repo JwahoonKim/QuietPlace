@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>my_page</title>
+
+    {% load static %} {% load sass_tags %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+
+    <link rel="stylesheet" href={% static "forMypage/css/open-iconic-bootstrap.min.css"%}>
+    <link rel="stylesheet" href={% static "forMypage/css/animate.css" %}>
+    
+    <link rel="stylesheet" href={% static "forMypage/css/owl.carousel.min.css" %}>
+    <link rel="stylesheet" href={% static "forMypage/css/owl.theme.default.min.css" %}>
+    <link rel="stylesheet" href={% static "forMypage/css/magnific-popup.css" %}>
+
+    <link rel="stylesheet" href={% static "forMypage/css/aos.css" %}>
+
+    <link rel="stylesheet" href={% static "forMypage/css/ionicons.min.css" %}>
+
+    <link rel="stylesheet" href={% static "forMypage/css/bootstrap-datepicker.css" %}>
+    <link rel="stylesheet" href={% static "forMypage/css/jquery.timepicker.css" %}>
+    
+    <link rel="stylesheet" href={% static "forMypage/css/flaticon.css" %}>
+    <link rel="stylesheet" href={% static "forMypage/css/icomoon.css" %}>
+    <link rel="stylesheet" href={% static "forMypage/css/style.css" %}>
+  </head>
+
+  <body>
+    <div id="colorlib-page">
+      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+      <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+        <h1 id="colorlib-logo"><a href="{% url 'index' %}">Quiet Place<span>.</span></a></h1>
+        <nav id="colorlib-main-menu" role="navigation">
+          <p>&nbsp;&nbsp;{{ user.profile.nickname }}님, 안녕하세요</p><br>
+          <ul>
+            <li><a href={% url 'my_page' %}>내 프로필</a><li>
+            <li><a href={% url 'likeCafe' %}>내가 찜한 공간 보기</a></li>
+            <li><a href={% url 'logout' %}>로그아웃하기</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <div id="colorlib-main">
+        {% block content %}
+        {% endblock %}
+      </div>
+
+    <script src={% static "forMypage/js/jquery.min.js" %}></script>
+    <script src={% static "forMypage/js/jquery-migrate-3.0.1.min.js" %}></script>
+    <script src={% static "forMypage/js/popper.min.js" %}></script>
+    <script src={% static "forMypage/js/bootstrap.min.js" %}></script>
+    <script src={% static "forMypage/js/jquery.easing.1.3.js" %}></script>
+    <script src={% static "forMypage/js/jquery.waypoints.min.js" %}></script>
+    <script src={% static "forMypage/js/jquery.stellar.min.js" %}></script>
+    <script src={% static "forMypage/js/owl.carousel.min.js" %}></script>
+    <script src={% static "forMypage/js/jquery.magnific-popup.min.js" %}></script>
+    <script src={% static "forMypage/js/aos.js" %}></script>
+    <script src={% static "forMypage/js/jquery.animateNumber.min.js" %}></script>
+    <script src={% static "forMypage/js/bootstrap-datepicker.js" %}></script>
+    <script src={% static "forMypage/js/jquery.timepicker.min.js" %}></script>
+    <script src={% static "forMypage/js/scrollax.min.js" %}></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src={% static "forMypage/js/google-map.js" %}></script>
+    <script src={% static "forMypage/js/main.js" %}></script>
+    
+  </body>
+</html>

@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.4s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-style: normal;
+  font-weight: bold;
+  background-image: url("../image/Main_Background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  color: white; }
+
+#Main_landing {
+  margin-top: 30vh;
+  height: 70vh;
+  width: 100vw;
+  display: flexbox;
+  justify-content: center; }
+
+.Main_intro {
+  margin-bottom: 30px;
+  height: 180px;
+  width: 60%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.4); }
+
+.Main_intro div {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  text-align: center; }
+
+#Main_IntroMsg {
+  font-size: 30px; }
+
+#Main_QP {
+  font-size: 50px; }
+
+#Main_Button_Container {
+  display: flex;
+  justify-content: flex-end; }
+
+#Main_Button_Container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch; }
+
+#Main_Button_Container button {
+  margin: 10px 80px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  border-color: none;
+  padding: 10px 20px; }
+
+#Main_Introduction {
+  height: 100vh;
+  background-color: black; }
+
+.intro-img {
+  height: 200px; }
+
+/*# sourceMappingURL=index.css.map */
