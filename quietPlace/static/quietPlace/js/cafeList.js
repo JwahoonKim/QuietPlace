@@ -54,18 +54,6 @@ const handleCafe = (switching) => {
 
 }
 
-// const handleRegion = () => {
-//     const getCafe = () => {
-//         return [...document.querySelectorAll('.cafe-box')];
-//     }
-
-//     const getRegion = (cafe) => {
-//         return cafe.querySelector('.card-title-region');
-//     }
-
-
-// }
-
 
 const handleTag = () => {
     const getTags = () => {

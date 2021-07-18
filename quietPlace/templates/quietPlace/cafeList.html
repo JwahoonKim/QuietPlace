@@ -36,7 +36,7 @@
               <div href="{% url 'cafe' id=cafe.id %}" class="card-title">
                 {{ cafe.cafe_name }}
               </div>
-              <div class="card-title-region {{cafe.region}}_positive">{{ cafe.region }} </div>
+              <li class="card-title-region {{cafe.region}}_positive" style="list-style: none;">{{ cafe.region }} </li>
             </div>
             <div class="card-description-box">{{ cafe.cafe_description }}</div>
           </div>

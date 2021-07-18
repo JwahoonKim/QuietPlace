@@ -19,13 +19,13 @@
   font-weight: bold;
 }
 
-// .cafe-container{
-//   .cafe-box {
-//     &.hide {
-//       display: none;
-//     }
-//   }
-// }
+.cafe-list{
+  .cafe-box {
+    &.hide {
+      display: none;
+    }
+  }
+}
 
 .cafe-list {
   padding: 10px;
