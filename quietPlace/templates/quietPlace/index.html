@@ -1,11 +1,25 @@
 {% extends 'base.html' %}
 {% load static %} {% load sass_tags %}
 
+
 {% block style %}
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+
+  <style>
+  #view-source {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 0;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    z-index: 900;
+  }
+  </style>
+
 {% endblock style %}
 
 {% block content %}
@@ -36,21 +50,21 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src={% static "forHeader/images/woman.jpg" %} class="d-block w-100" alt="..." style="width:100%">
+          <img src={% static "forMainpage/images/woman.jpg" %} class="d-block w-100" alt="..." style="width:100%">
           <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src={% static "forHeader/images/office.jpg" %} class="d-block w-100" alt="..." style="width:100%">
+          <img src={% static "forMainpage/images/office.jpg" %} class="d-block w-100" alt="..." style="width:100%">
           <div class="carousel-caption d-none d-md-block">
             <h5>Second slide label</h5>
             <p>Some representative placeholder content for the second slide.</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src={% static "forHeader/images/writing.jpg" %} class="d-block w-100" alt="..." style="width:100%">
+          <img src={% static "forMainpage/images/writing.jpg" %} class="d-block w-100" alt="..." style="width:100%">
           <div class="carousel-caption d-none d-md-block">
             <h5>Third slide label</h5>
             <p>Some representative placeholder content for the third slide.</p>
@@ -74,24 +88,25 @@
       </p>
     </div>
   </div>
+  
 <!--3. 사진 세개 section 시작-->
   <div class="android-screen-section mdl-typography--text-center" id="Main_Recommendation">
     <div class="mdl-typography--display-1-color-contrast">내게 맞는 공간 추천받기</div>
-    <img class="mainpage-arrow" src={% static "forHeader/images/arrow.png"%}>
+    <img class="mainpage-arrow" src={% static "forMainpage/images/arrow.png"%}>
     <div class="android-screens">
       <div class="android-tv android-screen">
         <a class="android-image-link" href={% url 'cafeList' %}>
-          <img class="android-screen-image" src={% static "forHeader/images/writing.jpg" %}>
+          <img class="android-screen-image" src={% static "forMainpage/images/writing.jpg" %}>
         </a>
       </div>
       <div class="android-tv android-screen">
         <a class="android-image-link" href={% url 'cafeList' %}>
-          <img class="android-screen-image" src={% static "forHeader/images/writing.jpg" %}>
+          <img class="android-screen-image" src={% static "forMainpage/images/writing.jpg" %}>
         </a>
       </div>
       <div class="android-tv android-screen">
         <a class="android-image-link" href={% url 'cafeList' %}>
-          <img class="android-screen-image" src={% static "forHeader/images/writing.jpg" %}>
+          <img class="android-screen-image" src={% static "forMainpage/images/writing.jpg" %}>
         </a>
       </div>
     </div>
@@ -119,7 +134,7 @@
       <p class="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
     </div>
     <div class="mdl-mega-footer--bottom-section">
-      <img class="footer-likelion-logo" src={% static "forHeader/images/profile.png" %}>
+      <img class="footer-likelion-logo rounded-circle" src={% static "forMainpage/images/profile.png" %}>
       <a class="android-link android-link-menu mdl-typography--font-light" id="developers-dropdown">
         개발자 괴롭히기..!
         <i class="material-icons">arrow_drop_up</i>
@@ -133,6 +148,9 @@
     </div>
   </footer>
 </div>
+
+<a href="https://github.com/google/material-design-lite/blob/mdl-1.x/templates/android-dot-com/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 {% endblock content %}
 

@@ -1,21 +1,21 @@
 .cafe-container .cafe-box.hide {
-  display: none; }
+  display: none !important; }
 
 .cafe-post {
-  border-radius: 20px;
-  background-color: white;
-  width: 22vw; }
+  border-radius: 20px !important;
+  background-color: white !important;
+  width: 22vw !important; }
 
 .selected {
-  background-color: grey;
-  color: #ff689f; }
+  background-color: grey !important;
+  color: #ff689f !important; }
 
 .card-title-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; }
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important; }
 
 .card-title-region {
-  margin-bottom: .75rem; }
+  margin-bottom: .75rem !important; }
 
 /*# sourceMappingURL=cafeList.css.map */
