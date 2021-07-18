@@ -94,6 +94,21 @@ const handleTag = () => {
     })
 }
 
+const onClickTag = (tagElement) => {
+    const tagName = tagElement.classList[1];
+    const isClicked = tagElement.classList[2];
+
+    if(isClicked) {
+        tagElement.setAttribute('style',
+            'color:  #808080; font-weight: bold; background-color: white;');
+        tagElement.classList.remove(`${tagName}-clicked`);
+    } else {
+        tagElement.setAttribute('style', 
+            ' background-color: #808080; color: white; font-weight: bold;');
+        tagElement.classList.add(`${tagName}-clicked`);
+    }
+}
+
 handleTag();
 
 
