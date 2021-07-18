@@ -1,16 +1,25 @@
 {% extends 'quietPlace/my_page_base.html' %}
-
+{% load static %} {% load sass_tags %}
+{% block style%}
+  <link rel="stylesheet" href={% sass_src 'accounts/scss/revise.scss' %}/>
+{% endblock style%}
 {% block content %}
+  <div class="revise_form">
   <h1> 프로필 변경하기 </h1>
     <form method="POST" action="{% url 'revise' %}">
       {% csrf_token %}
-      프로필사진 : 
-      닉네임 : 
-      <br>
-      <input name="nickname" type="text" value="{{ user.profile.nickname }}">
-      <br>
-      <br>
+      <div>  
+        프로필사진:
+      </div>
+      <div>
+        닉네임 : 
+        <br>
+        <input name="nickname" type="text" value="{{ user.profile.nickname }}">
+        <br>
+        <br>
+      </div>
       <input type="submit" value="변경하기">
     </form>
+  </div>
 
 {% endblock %}
