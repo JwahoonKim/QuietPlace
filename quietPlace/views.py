@@ -3,6 +3,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 import quietPlace
 from quietPlace.models import Cafe, Review, Cafe_Photo, Like, Tag
+from django.contrib.auth.models import User
 from accounts.models import Profile
 from django.http import JsonResponse
 # JsonResponse 추가가 필요한 경우 아래 코드 추가
@@ -32,7 +33,9 @@ def my_page(request):
 
 
 def likeCafe(request):
-    return render(request, 'quietPlace/likeCafeList.html')
+    user = User.objects.get(id=request.user.id)
+    like_cafes = user.like_cafes.all()
+    return render(request, 'quietPlace/likeCafeList.html', {'like_cafes': like_cafes, 'user': user})
 
 
 def cafeList(request):
@@ -86,6 +89,7 @@ def new_cafe(request):
             place_size=place_size, discussion_room=discussion_room, booking_available=booking_available
         )
         return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'tag': tag})
+
 
 def cafe_like(request, id):
     cafe = Cafe.objects.get(id=id)
