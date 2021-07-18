@@ -1,31 +1,92 @@
-.cafe-container{
-  .cafe-box {
-    &.hide {
-      display: none; 
-    }
+.tag-list {
+  margin: 30px;
+}
+
+.filter-tag-button {
+  border: 1px solid  #808080;
+  border-radius: 10px;
+  font-size: 15px;;
+  padding: 7px;
+  margin: 4px;
+  color:  #808080;
+  font-weight: bold;
+  background-color: white;
+}
+
+.filter-tag-button:hover {
+  background-color: #808080;
+  color: white;
+  font-weight: bold;
+}
+
+// .cafe-container{
+//   .cafe-box {
+//     &.hide {
+//       display: none;
+//     }
+//   }
+// }
+
+.cafe-list {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cafe-post {
+  width: 250px;
+  height: 250px;
+  border-radius: 60px;
+  background-color: white;
+  margin: 15px;
+  margin-bottom: 30px;
+
+  img {
+    width: 250px;
+    height: 250px;
+    border-radius: 40px;
   }
 }
 
-
-.cafe-post {
-  border-radius: 20px;
-  background-color: white;
-  width: 22vw;
+.card-box {
+  padding:  20px;
 }
-
 // 추후 이 색깔도 카페 컨셉에 맞게 변경
 .selected {
   background-color: grey;
-  color: #ff689f;
+  color: white;
 }
 
 .card-title-box {
+  font-family: Roboto;
+  font-size: 25px;
+  color: white;
+  margin-top: -110px;
+  margin-right: 27px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .card-title-region {
-  margin-bottom: .75rem;
+  font-size: 15px;
+}
+
+.card-description-box {
+  font-family: Roboto;
+  font-size: 15px;
+  color: white;
+}
+
+.list-group {
+  display: none !important;
+}
+
+a { 
+  text-decoration:none !important 
+}
+
+a:hover { 
+  text-decoration:none !important 
 }
 
