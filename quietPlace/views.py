@@ -2,6 +2,7 @@ from django.http.request import HttpRequest
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from quietPlace.models import Cafe, Review, Cafe_Photo, Like, Tag
+from django.contrib.auth.models import User
 from accounts.models import Profile
 from django.http import JsonResponse
 # JsonResponse 추가가 필요한 경우 아래 코드 추가
@@ -32,7 +33,9 @@ def my_page(request):
 
 
 def likeCafe(request):
-    return render(request, 'quietPlace/likeCafeList.html')
+    user = User.objects.get(id=request.user.id)
+    like_cafes = user.like_cafes.all()
+    return render(request, 'quietPlace/likeCafeList.html', {'like_cafes': like_cafes, 'user': user})
 
 
 def cafeList(request):
@@ -87,21 +90,24 @@ def new_cafe(request):
         )
         return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'tag': tag})
 
+
 class Reviewview:
     def create(request, id):
         content = request.POST['content']
-        review = Review.objects.create(cafe_id=id, content=content, author=request.user)
+        review = Review.objects.create(
+            cafe_id=id, content=content, author=request.user)
         cafe = Cafe.objects.get(id=id)
         return JsonResponse({
-                'reviewId': review.id,
-                'reviewCount': cafe.review_set.count(),
-                'author_nickname': request.user.profile.nickname
+            'reviewId': review.id,
+            'reviewCount': cafe.review_set.count(),
+            'author_nickname': request.user.profile.nickname
         })
 
     def delete(request, id, cid):
         review = Review.objects.get(id=cid)
         review.delete()
         return redirect(f'/posts/cafe/{id}')
+
 
 def cafe_like(request, id):
     cafe = Cafe.objects.get(id=id)

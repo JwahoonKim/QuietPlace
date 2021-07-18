@@ -2,4 +2,7 @@
 
 {% block content %}
   좋아하는 카페 리스트
+  {% for cafe in like_cafes %}
+    {{cafe.cafe_name}}
+  {% endfor %}
 {% endblock %}
