@@ -68,7 +68,7 @@ def new_cafe(request):
         category = request.POST['category']
         region = request.POST['region']
         cafe = Cafe.objects.create(
-            cafe_name=cafe_name, cafe_description=cafe_description, working_hour=working_hour, workding_detail=working_detail, phone=phone, address=address, category=category, region=region
+            cafe_name=cafe_name, cafe_description=cafe_description, working_hour=working_hour, working_detail=working_detail, phone=phone, address=address, category=category, region=region
         )
         for img in request.FILES.getlist('imgs'):
             cafe_photo = Cafe_Photo()
@@ -89,7 +89,7 @@ def new_cafe(request):
             cafe=cafe, chair=chair, table=table, socket=socket, bathroom=bathroom, wifi=wifi, volume=volume,
             place_size=place_size, discussion_room=discussion_room, booking_available=booking_available
         )
-        return redirect(show)
+        return redirect(f'/posts/cafe/{cafe.id}')
 
 
 class Reviewview:
