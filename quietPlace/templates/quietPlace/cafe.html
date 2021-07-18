@@ -168,7 +168,7 @@
                       {{ review.content }}
                     </div>
                     {% if request.user == review.author %}
-                    <a onclick="onReviewDelete({{cafe.id}}, {{review.id}})">리뷰 삭제</a>
+                    <a onclick="onReviewDelete({{cafe.id}},{{review.id}})">리뷰 삭제</a>
                     {% endif %}
                   </div>
                 {% endfor %%}

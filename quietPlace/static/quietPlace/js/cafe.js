@@ -41,7 +41,7 @@ const getReviewElement = (
                                   </div>
                                  </header>
                                  <div class="comment__text"> ${review} </div>
-                                 <a onclick="onReviewDelete(${reviewId})">리뷰 삭제</a>`;
+                                 <a onclick="onReviewDelete(${cafeId},${reviewId})">리뷰 삭제</a>`;
   return newReviewElement;
 };
 
@@ -49,9 +49,11 @@ const getReviewElement = (
 const onReviewDelete = async (cafeId, reviewId) => {
   if (confirm("정말 삭제하시겠습니까?") === true) {
     const review = document.getElementById(`${reviewId}-review`);
+     console.log(cafeId);
     await axios.delete(`/posts/cafe/${cafeId}/cafe_review/${reviewId}/`);
     review.remove();
   }
 };
 
-console.log()
+
+

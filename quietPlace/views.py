@@ -101,4 +101,6 @@ class Reviewview:
     def delete(request, id, cid):
         review = Review.objects.get(id=cid)
         review.delete()
-        return redirect(f'/quietPlace/cafe/{id}')
+        return redirect(f'/posts/cafe/{id}')
+
+
