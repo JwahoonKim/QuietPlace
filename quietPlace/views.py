@@ -1,7 +1,6 @@
 from django.http.request import HttpRequest
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-import quietPlace
 from quietPlace.models import Cafe, Review, Cafe_Photo, Like, Tag
 from accounts.models import Profile
 from django.http import JsonResponse
@@ -17,7 +16,8 @@ def index(request):
 
 def show(request, id):
     cafe = Cafe.objects.get(id=id)
-    return render(request, 'quietPlace/cafe.html', {'cafe': cafe})
+    reviews_num = cafe.review_set.count()
+    return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'reviews_num': reviews_num})
 
 
 def recommendation(request):
@@ -86,6 +86,22 @@ def new_cafe(request):
             place_size=place_size, discussion_room=discussion_room, booking_available=booking_available
         )
         return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'tag': tag})
+
+class Reviewview:
+    def create(request, id):
+        content = request.POST['content']
+        review = Review.objects.create(cafe_id=id, content=content, author=request.user)
+        cafe = Cafe.objects.get(id=id)
+        return JsonResponse({
+                'reviewId': review.id,
+                'reviewCount': cafe.review_set.count(),
+                'author_nickname': request.user.profile.nickname
+        })
+
+    def delete(request, id, cid):
+        review = Review.objects.get(id=cid)
+        review.delete()
+        return redirect(f'/posts/cafe/{id}')
 
 def cafe_like(request, id):
     cafe = Cafe.objects.get(id=id)
