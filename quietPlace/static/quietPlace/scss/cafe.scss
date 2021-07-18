@@ -1,24 +1,140 @@
 a {
   color: #616161 !important;
+  text-decoration: none;
+}
+
+h2 {
+  font-weight: 600;
 }
 
 h3 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  background-color: #14014b85;
+}
+
+.cafe_layout {
+  width: 60%;
+  margin-top: 30px;
+}
+
+.cafe_card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: white;
+}
+
+.cafe_card_img {
+  background-image: url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FmZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
+  background-position: center;
+  width: auto;
+  height: 300px;
+  padding: 0px 50px;
+  display: flex;  
+  justify-content: flex-end;
+}
+
+.more-photo {
+  margin-top: 230px;
+
+  button {
+    color: rgba($color: #ffffff, $alpha: 1)
+  }
+}
+
+.cafe_card_header {
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  
+  .cafe-star {
+    float: left;
+  }
 }
 
 .cafe_box {
   display: flex;
   flex-direction: column;
-  padding: 20px 50px;
+  padding: 0px 50px;
 }
 
 .cafe_box {
   div {
-    margin: 5px 0px; 
+    margin: 15px 0px; 
+  }
+}
+
+.like-container {
+  display: flex;
+  align-items:center;
+  
+  a {
+    display: flex;
+    align-items:flex-end;
+
+    span {
+      padding: 0px 5px;
+    }
   }
 }
 
 .cafe_tag_icon {
   width: 35px;
   height: auto;
+  margin: 0px 10px;
+}
+
+.cafe-tags {
+  display: flex;
+  justify-content: flex-start;
+  .tag-column {
+    display: inherit;
+    flex-direction: column;
+    margin-right: auto;
+    .tag-row {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.map_box {
+  display: flex;
+  justify-content: center;
+}
+
+.review_area {
+  background-color: #ececec;
+  padding: 10px 20px;
+  border-radius: 5px; 
+}
+
+.review_heading {
+  border-bottom: #616161 5px;
+  margin-bottom: 100px;
+}
+
+.reviews_heading_title {
+  border-color: black;
+}
+
+.review_heading_count {
+  vertical-align: bottom;
+  color: #616161;
+}
+
+.review_input_area {
+  height:50px; 
+  width:90%; 
+  border:none;
+}
+
+.review_profile_pic {
+  border-radius: 100%;
 }
