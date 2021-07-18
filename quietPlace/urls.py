@@ -13,4 +13,5 @@ urlpatterns = [
     path('cafe/<int:id>/', quietPlace.views.show, name='cafe'),
     path('cafe/<int:id>/cafe_review/', quietPlace.views.Reviewview.create, name='cafe_review'),
     path('cafe/<int:id>/cafe_review/<int:cid>/', quietPlace.views.Reviewview.delete, name='review_delete'),
+    path('<int:id>/like/', quietPlace.views.cafe_like, name='like'),
 ]
