@@ -1,21 +1,73 @@
-.cafe-container .cafe-box.hide {
+.tag-list {
+  margin: 30px; }
+
+.filter-tag-button {
+  border: 1px solid  #808080;
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 7px;
+  margin: 4px;
+  color: #808080;
+  font-weight: bold;
+  background-color: white; }
+
+.filter-tag-button:hover {
+  background-color: #808080;
+  color: white;
+  font-weight: bold; }
+
+.cafe-list .cafe-box.hide {
   display: none; }
 
+.cafe-list {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); }
+
 .cafe-post {
-  border-radius: 20px;
+  width: 250px;
+  height: 250px;
+  border-radius: 60px;
   background-color: white;
-  width: 22vw; }
+  margin: 15px;
+  margin-bottom: 30px; }
+  .cafe-post img {
+    width: 250px;
+    height: 250px;
+    border-radius: 40px; }
+
+.card-box {
+  padding: 20px; }
 
 .selected {
   background-color: grey;
-  color: #ff689f; }
+  color: white; }
 
 .card-title-box {
+  font-family: Roboto;
+  font-size: 25px;
+  color: white;
+  margin-top: -110px;
+  margin-right: 27px;
   display: flex;
   align-items: center;
   justify-content: space-between; }
 
 .card-title-region {
-  margin-bottom: .75rem; }
+  font-size: 15px; }
+
+.card-description-box {
+  font-family: Roboto;
+  font-size: 15px;
+  color: white; }
+
+.list-group {
+  display: none !important; }
+
+a {
+  text-decoration: none !important; }
+
+a:hover {
+  text-decoration: none !important; }
 
 /*# sourceMappingURL=cafeList.css.map */
