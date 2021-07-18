@@ -141,16 +141,23 @@
                 comments
               "
             >
-              <div class="reviews-upper">
+              <div class="reviews-upper mb-3">
                 <div class="reviews-upper-title">리뷰</div>
-                <!--  -->
-                <a href="#" class="write-review">리뷰 작성하러가기</a>
+                <p id="review-count" class="ml-5 mr-auto"><strong>리뷰가 {{ reviews_num }}개 있습니다</strong><p>
               </div>
+              {% if user.is_authenticated %}
+                <div class="form-floating">
+                  <input class="form-control" id="review-input" type="text" style="height: 100px" id="review-input" name="content"></input>
+                  <label for="review-input">Review</label>
+                </div>
+                <button class="btn btn-secondary review-submit-button" onclick="onCreateReview({{cafe.id}})">작성하기</button>
+                <br>
+              {% endif %}
               <!-- 실제 댓글들 시작 -->
               <!-- 리뷰가 없다면 리뷰가 없어요 띄워주자! -->
-              <div class="reviews">
+              <div id="{{cafe.id}}-review-list">
                 {% for review in cafe.review_set.all %}
-                  <div class="comment mdl-color-text--grey-700 review">
+                  <div id="{{review.id}}-review" class="comment mdl-color-text--grey-700 review">
                     <header class="comment__header">
                         <!-- 프로필사진 이미지-->
                       <img src={% static "forCafe/images/co1.jpg" %}
@@ -158,11 +165,13 @@
                       <div class="comment__author">
                         <strong class="review-nickname">{{ review.author.profile.nickname }}</strong>
                       </div>
-                      <div class="review-star">⭐⭐⭐⭐⭐</div>
                     </header>
                     <div class="comment__text">
                       {{ review.content }}
                     </div>
+                    {% if request.user == review.author %}
+                    <a onclick="onReviewDelete({{cafe.id}},{{review.id}})">리뷰 삭제</a>
+                    {% endif %}
                   </div>
                 {% endfor %%}
               </div>
@@ -179,6 +188,7 @@
       <div class="mdl-layout__obfuscator"></div>
     </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="{% static 'quietPlace/js/cafe.js' %}"></script>
     
     <script type="text/javascript">
       naver.maps.Service.geocode({

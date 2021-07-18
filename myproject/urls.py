@@ -17,9 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 import quietPlace.views
+import accounts.views
 from django.conf import settings
 from django.conf.urls.static import static
-import accounts.views
 from django.conf.urls import url
 
 urlpatterns = [
