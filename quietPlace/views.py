@@ -87,7 +87,6 @@ def new_cafe(request):
         )
         return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'tag': tag})
 
-
 def cafe_like(request, id):
     cafe = Cafe.objects.get(id=id)
     like_list = cafe.like_set.filter(user_id=request.user.id)
