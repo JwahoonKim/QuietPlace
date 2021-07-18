@@ -17,4 +17,5 @@ urlpatterns = [
     path('cafe_review', quietPlace.views.cafe_review, name='cafe_review'),
     path('newcafe/', quietPlace.views.new_cafe, name='new_cafe'),
     path('cafe/<int:id>/', quietPlace.views.show, name='cafe'),
+    path('<int:id>/like/', quietPlace.views.cafe_like, name='like'),
 ]

@@ -1,21 +1,9 @@
+{% extends 'base.html' %}
 {% load static %} {% load sass_tags %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="description"
-      content="A front-end template that helps you build fast, modern mobile web apps."
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
-    />
-    <title>{{ cafe.cafe_name }}</title>
-
+  {% block style %}
     <!-- Add to homescreen for Chrome on Android -->
+
     <meta name="mobile-web-app-capable" content="yes" />
     <link rel="icon" sizes="192x192" href={% static
     'forCafe/images/touch/chrome-touch-icon-192x192.png' %} />
@@ -27,7 +15,6 @@
       rel="stylesheet"
       href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
     />
-
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -51,29 +38,25 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    
     <link
       rel="stylesheet"
       href="https://code.getmdl.io/1.3.0/material.grey-orange.min.css"
     />
     <link rel="stylesheet" href={% sass_src "forCafe/scss/styles.scss" %}/>
-    <style>
-      #view-source {
-        position: fixed;
-        display: block;
-        right: 0;
-        bottom: 0;
-        margin-right: 40px;
-        margin-bottom: 40px;
-        z-index: 900;
-      }
-    </style>
+    <link rel="stylesheet" href="{% static 'quietPlace/scss/cafe.scss' %}"
+
+  {% endblock style %}
+
+  {% block js%}
     <!-- 네이버 지도를 위한 코드 -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=u2k6flryoy"></script>
     <!-- 주소를 사용해 위도 경도를 알아내기 위한 모듈 -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=u2k6flryoy&submodules=geocoder"></script>
-  </head>
+  {% endblock js%}
 
-  <body>
+
+  {% block content %}
     <div>
     <div
       class="
@@ -102,10 +85,21 @@
               <div class="cafe-star">⭐⭐⭐⭐</div>
               <div class="section-spacer"></div>
               <!-- 좋아요 아이콘 누르면 빨갛게 변하게하기 -->
-              <div class="meta__favorites">
-              {% comment %} 425를 cafe.like_users.count()로 바꿔 {% endcomment %}
-                <i class="material-icons" role="presentation">favorite</i> 425
-                <span class="visuallyhidden">favorites</span>
+              <div class="meta__favorites like-container">
+              {% if user.is_authenticated %}
+                <a style="color: #616161"
+                  href="#" id='{{cafe.id}}-like-button' onclick="onClickLikeButton({{cafe.id}})"
+                > 
+                  {% if user in cafe.like_users.all %}
+                    <i class="material-icons" role="presentation" style="color: #dc3545;">favorite</i> <span id="cafe-count">{{ cafe.like_users.count }}</span>
+                  {% else %}
+                    <i class="material-icons" role="presentation" style="color: #616161;">favorite</i> <span id="cafe-count">{{ cafe.like_users.count }}</span>
+                  {% endif %}
+                </a>
+              {% else %}
+                  <i class="material-icons" role="presentation" style="color: #dc3545;">favorite</i> <span id="cafe-count">{{ cafe.like_users.count }}</span>
+              {% endif %}
+                
               </div>
             </div>
             <div class="mdl-color-text--grey-700 mdl-card__supporting-text">
@@ -186,9 +180,9 @@
     </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     
-    <script>
+    <script type="text/javascript">
       naver.maps.Service.geocode({
-          address: '쑥고개로 123'
+          address: "{{ cafe.address }}"
       }, function(status, response) {
           if (status !== naver.maps.Service.Status.OK) {
               return alert('주소가 잘못됐나보다..');
@@ -213,5 +207,6 @@
           }); 
       });
     </script>
-  </body>
-</html>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{%static 'quietPlace/js/cafe.js'%}"></script>
+  {% endblock content %}

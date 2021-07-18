@@ -86,3 +86,16 @@ def new_cafe(request):
             place_size=place_size, discussion_room=discussion_room, booking_available=booking_available
         )
         return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'tag': tag})
+
+def cafe_like(request, id):
+    cafe = Cafe.objects.get(id=id)
+    like_list = cafe.like_set.filter(user_id=request.user.id)
+    if like_list.count() > 0:
+        cafe.like_set.get(user=request.user).delete()
+    else:
+        Like.objects.create(user=request.user, cafe=cafe)
+    return JsonResponse({
+        'cafeLikeOfUser': like_list.count(),
+        'cafeLikeCount': cafe.like_set.count(),
+        # 'userLikeCount' : request.user.like_cafes.count()
+    })
