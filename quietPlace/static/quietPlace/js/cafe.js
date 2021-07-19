@@ -1,4 +1,4 @@
-const onCreateReview = async (cafeId) => {
+const onReviewCreate = async (cafeId) => {
   const reviewInputElement = document.getElementById("review-input");
   if (reviewInputElement.value) {
     let data = new FormData();
@@ -70,3 +70,5 @@ const onClickLikeButton = async (cafeId) => {
     }
 
 }
+
+console.log('connected')
