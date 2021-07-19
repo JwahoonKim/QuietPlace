@@ -1,0 +1,81 @@
+.likeCafeList_page {
+  display: flex;
+  flex-direction: column;
+  width: 70vw
+}
+
+.cafe-list-heading {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 50px 0px;
+
+  h2 {
+    font-weight: 600;
+  }
+}
+
+.cafe-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0px 65px;
+}
+
+.cafe-post {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  margin: 10px 25px;
+  margin-bottom: 50px;
+
+  img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+  }
+}
+
+.card-box {
+  padding:  20px;
+}
+// 추후 이 색깔도 카페 컨셉에 맞게 변경
+.selected {
+  background-color: grey;
+  color: white;
+}
+
+.card-title-box {
+  font-family: Roboto;
+  font-size: 30px;
+  color: white;
+  margin-top: -110px;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title-region {
+  font-size: 15px;
+}
+
+.card-description-box {
+  font-family: Roboto;
+  font-size: 15px;
+  padding: 5px 0px;
+  color: white;
+  overflow: hidden;
+}
+
+.list-group {
+  display: none !important;
+}
+
+a { 
+  text-decoration:none !important 
+}
+
+a:hover { 
+  text-decoration:none !important 
+}
+

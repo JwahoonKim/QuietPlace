@@ -1,31 +1,33 @@
 {% extends 'quietPlace/my_page_base.html' %}
 {% load static %} {% load sass_tags %}
 {% block style %}
-  <link rel="stylesheet" type="text/css" href={% static "quietPlace/scss/likeCafeList.css" %}/>
+  <link rel="stylesheet" type="text/css" href="{% sass_src 'quietPlace/scss/mypage_like.scss' %}"/>
 {% endblock style %}
 {% block content %}
-  <div>좋아하는 카페 리스트</div>
-  <div class="cafe-list">
-  {% for cafe in like_cafes %}
-    <div id="{{cafe.id}}-cafe-box" class="cafe-box">
-      <div class="cafe-post">
-        <a href="{% url 'cafe' id=cafe.id %}">
-          <img
-            src="https://www.jeongdong.or.kr/static/portal/img/HKPU_04_04_pic1.jpg"
-            alt="..."
-          />
-          <div class="card-box">
-            <div class="card-title-box">
-              <div href="{% url 'cafe' id=cafe.id %}" class="card-title">
-                {{ cafe.cafe_name }}
+  <div class="likeCafeList_page">
+    <div class="cafe-list-heading"><h2>내가 찜한 카페 리스트</h2></div>
+    <div class="cafe-list">
+    {% for cafe in like_cafes %}
+      <div id="{{cafe.id}}-cafe-box" class="cafe-box">
+        <div class="cafe-post">
+          <a href="{% url 'cafe' id=cafe.id %}">
+            <img
+              src="https://www.jeongdong.or.kr/static/portal/img/HKPU_04_04_pic1.jpg"
+              alt="..."
+            />
+            <div class="card-box">
+              <div class="card-title-box">
+                <div href="{% url 'cafe' id=cafe.id %}" class="card-title">
+                  {{ cafe.cafe_name }}
+                </div>
+                <li class="card-title-region {{cafe.region}}_positive" style="list-style: none;">{{ cafe.region }} </li>
               </div>
-              <li class="card-title-region {{cafe.region}}_positive" style="list-style: none;">{{ cafe.region }} </li>
+              <div class="card-description-box">{{ cafe.cafe_description }}</div>
             </div>
-            <div class="card-description-box">{{ cafe.cafe_description }}</div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 {% endblock %}

@@ -106,7 +106,7 @@ main {
 
 .map_box {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .review_area {
@@ -116,12 +116,7 @@ main {
 }
 
 .review_heading {
-  border-bottom: #616161 5px;
   margin-bottom: 100px;
-}
-
-.reviews_heading_title {
-  border-color: black;
 }
 
 .review_heading_count {
@@ -131,8 +126,20 @@ main {
 
 .review_input_area {
   height:50px; 
-  width:90%; 
-  border:none;
+  width:90%;
+  border-color: rgba(179, 179, 179, 0.719);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+.review-submit-button {
+  width: 100px;
+  height: 25px;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #6c757d;
+  border: 1px solid transparent;
 }
 
 .review_profile_pic {
