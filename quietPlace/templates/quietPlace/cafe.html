@@ -124,7 +124,7 @@
               {% if user.is_authenticated %}
               <div>
                 <div>
-                  <input id="review-input" class="review_input_area" type="text" style="height:50px; width:70%; border:none;" name="content"></input>
+                  <input id="review-input" class="review_input_area" type="text" name="content" placeholder="리뷰를 작성해주세요!"></input>
                 </div>
                 <button class="review-submit-button" onclick="onReviewCreate({{cafe.id}})">작성하기</button>
               </div>
