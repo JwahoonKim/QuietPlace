@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "revise.css",
+	"sources": [
+		"revise.scss"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,YAAY,CAAC;EACT,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM,GACtB"
+}
