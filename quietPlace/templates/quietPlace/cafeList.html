@@ -39,7 +39,7 @@
       <div class="cafe-post">
         <a href="{% url 'cafe' id=cafe.id %}">
           <img
-            src="https://www.jeongdong.or.kr/static/portal/img/HKPU_04_04_pic1.jpg"
+            src="{{cafe.cafe_photo_set.all.0.cafe_img.url}}"
             alt="..."
           />
           <div class="card-box">

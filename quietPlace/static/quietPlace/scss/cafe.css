@@ -25,8 +25,8 @@ main {
   background-color: white; }
 
 .cafe_card_img {
-  background-image: url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FmZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
   background-position: center;
+  background-size: 100%;
   width: auto;
   height: 300px;
   padding: 0px 50px;
