@@ -27,13 +27,13 @@
 .cafe-post {
   width: 300px;
   height: 300px;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 10px;
   margin-bottom: 30px; }
   .cafe-post img {
     width: 300px;
     height: 300px;
-    border-radius: 20px; }
+    border-radius: 10px; }
 
 .card-box {
   padding: 20px; }
@@ -60,7 +60,9 @@
   font-size: 15px;
   padding: 5px 0px;
   color: white;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 10px;
+  margin: 5px 0px; }
 
 .list-group {
   display: none !important; }
