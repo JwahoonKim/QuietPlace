@@ -9,17 +9,12 @@ const handleCafe = (switching) => {
     const onFiltering = () => {
         filterCondition.forEach((tag_positive) => {
             console.log(filterCondition)
+            const cafes = getCafe();
+            cafes.forEach(cafe => {
+                cafe.classList.remove('hide');
+            })
             HideNotPositiveCafe(tag_positive);
         })
-    }
-
-    // 태그를 off 했을 경우
-    const offFiltering = () => {
-        const cafes = getCafe();
-        cafes.forEach(cafe => {
-            cafe.classList.remove('hide');
-        })
-        onFiltering();
     }
 
     const getTagList = (cafe) => {
@@ -49,8 +44,7 @@ const handleCafe = (switching) => {
     }
 
     //     ----------------- 실행 ------------------- //  
-    if (switching === "ON") onFiltering();
-    else offFiltering();
+    onFiltering();
 
 }
 
@@ -59,19 +53,31 @@ const handleTag = () => {
     const getTags = () => {
         return [...document.querySelectorAll(".filter-tag-button")];
     }
-    console.log(getTags())
+    // console.log(getTags())
 
     const handleOnClick = (tagDom) => {
         tagDom.onclick = () => {
             if (tagDom.classList.contains('selected')) {
                 tagDom.classList.remove('selected');
                 filterCondition = filterCondition.filter(tag => tag !== `${tagDom.id}_positive`)
-                handleCafe("OFF");
+                handleCafe();
             }
             else {
                 tagDom.classList.add('selected');
+                if (tagDom.id === "서울대입구역") {
+                    const nokduDom = document.getElementById("대학동");
+                    nokduDom.classList.remove('selected');
+                    const nokdu = "대학동_positive";
+                    filterCondition = filterCondition.filter(tag => tag !== nokdu);
+                }
+                else if (tagDom.id === "대학동") {
+                    const seoulDom = document.getElementById("서울대입구역");
+                    seoulDom.classList.remove('selected');
+                    const seoul = "서울대입구역_positive";
+                    filterCondition = filterCondition.filter(tag => tag !== seoul);
+                }
                 filterCondition.push(`${tagDom.id}_positive`);
-                handleCafe('ON');
+                handleCafe();
             }
         }
     }
