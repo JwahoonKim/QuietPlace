@@ -17,9 +17,9 @@ def index(request):
 
 def show(request, id):
     cafe = Cafe.objects.get(id=id)
-    # cafe_photo = Cafe_Photo.objects.get(cafe=cafe)
+    cafe_photos = Cafe_Photo.objects.filter(cafe=cafe)
     reviews_num = cafe.review_set.count()
-    return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'reviews_num': reviews_num})
+    return render(request, 'quietPlace/cafe.html', {'cafe': cafe, 'cafe_photos': cafe_photos, 'reviews_num': reviews_num})
 
 
 def recommendation(request):
@@ -40,12 +40,21 @@ def likeCafe(request):
 
 
 def cafeList(request):
-    if request.method == "POST":
-        cafes = Cafe.objects.all().filter(
-            cafe_name__icontains=request.GET['search_value'])
-        return render(request, 'quietPlace/cafeList.html', {"cafes": cafes})
-    cafes = Cafe.objects.all()
-    cafe_box = [[]]
+    cafes = Cafe.objects.filter(category="카페")
+    region_buttons = [['#서울대입구역', '서울대입구역'], ['#대학동', '대학동']]
+    tag_buttons = [ ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#와이파이 있어요', 'wifi'], ['#조용해요', 'volume'],
+                   ['#공간이 넓어요', 'place_size'], ['#다인원 토론공간이 있어요', 'discussion_room'], ['#예약이 가능해요', 'booking_available']]
+    return render(request, 'quietPlace/cafeList.html', {"cafes": cafes, "tag_buttons": tag_buttons, 'region_buttons': region_buttons})
+
+def studyCafeList(request):
+    cafes = Cafe.objects.filter(category="스터디카페")
+    region_buttons = [['#서울대입구역', '서울대입구역'], ['#대학동', '대학동']]
+    tag_buttons = [ ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#와이파이 있어요', 'wifi'], ['#조용해요', 'volume'],
+                   ['#공간이 넓어요', 'place_size'], ['#다인원 토론공간이 있어요', 'discussion_room'], ['#예약이 가능해요', 'booking_available']]
+    return render(request, 'quietPlace/cafeList.html', {"cafes": cafes, "tag_buttons": tag_buttons, 'region_buttons': region_buttons})
+
+def shareOfficeList(request):
+    cafes = Cafe.objects.filter(category="공유오피스")
     region_buttons = [['#서울대입구역', '서울대입구역'], ['#대학동', '대학동']]
     tag_buttons = [ ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#와이파이 있어요', 'wifi'], ['#조용해요', 'volume'],
                    ['#공간이 넓어요', 'place_size'], ['#다인원 토론공간이 있어요', 'discussion_room'], ['#예약이 가능해요', 'booking_available']]
@@ -87,7 +96,7 @@ def new_cafe(request):
             cafe=cafe, chair=chair, table=table, socket=socket, bathroom=bathroom, wifi=wifi, volume=volume,
             place_size=place_size, discussion_room=discussion_room, booking_available=booking_available
         )
-        return redirect(f'/posts/cafe/{cafe.id}')
+        return redirect(f'/posts/{cafe.id}')
 
 
 class Reviewview:

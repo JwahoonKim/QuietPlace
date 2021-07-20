@@ -5,5 +5,5 @@
 		"my_page.scss"
 	],
 	"names": [],
-	"mappings": "AAAA,AAAA,YAAY,CAAC;EACT,UAAU,EAAE,KAAK,GACpB"
+	"mappings": "AAAA,AAAA,YAAY,CAAC;EACT,UAAU,EAAE,KAAK;EACjB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,IAAI,GACtB"
 }
