@@ -36,12 +36,9 @@
   <div class="cafe-list">
     {% for cafe in cafes %}
     <div id="{{cafe.id}}-cafe-box" class="cafe-box">
-      <div class="cafe-post">
+      <div class="cafe-post" style="background-image: url('{{cafe.cafe_photo_set.all.0.cafe_img.url}}')">
+        <div class="black-gradiant">
         <a href="{% url 'cafe' id=cafe.id %}">
-          <img
-            src="{{cafe.cafe_photo_set.all.0.cafe_img.url}}"
-            alt="..."
-          />
           <div class="card-box">
             <div class="card-title-box">
               <div href="{% url 'cafe' id=cafe.id %}" class="card-title">
@@ -81,6 +78,7 @@
             {% endif %}
           </ul>
         </a>
+        </div>
       </div>
     </div>
     {% endfor %}
