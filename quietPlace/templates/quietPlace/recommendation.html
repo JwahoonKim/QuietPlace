@@ -1,16 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div>추천받기</div>
-    <section>지역 입력해!</section>
-    <section>공간 유형 입력해!</section>
-    <section>태그 입력해!</section>
-    <a href="{% url 'cafeList' %}">찾아보기</a>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% load static %} {% load sass_tags %}
+  {% block style %}
+    <link
+      href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'quietPlace/scss/recommendation.scss'%}">  
+  {% endblock style %}
+  {% block content %}
+  <div class = "recommendation-intro">
+    <span>
+      <img class="logo-image" src={% static "forRecommendation/images/logo.jpg" %}>
+      오늘은 어디에서 일하세요? 
+    </span>
+  </div>
+  {% comment %} <div class = "cafe-type">
+    <div class="main-cafe" ></div>
+    <div class="main-sharingoffice"></div>
+    <div class="main-studycafe"></div>
+  </div> {% endcomment %}
+  <div class="place-type-list">
+      <div class="place-box">
+        <a class="cafe-link" href={% url 'cafeList' %}>
+          <img class="place-image" src={% static "forRecommendation/images/main_cafe.jpg" %}>
+          <div class = "name-text"> 일반 카페 </div>
+        </a>
+      </div>
+      <div class="place-box">
+        <a class="studycafe-link" href={% url 'cafeList' %}>
+          <img class="place-image" src={% static "forRecommendation/images/main_sharingoffice.jpg" %}>
+          <div class = "name-text"> 스터디 카페 </div>
+        </a>
+      </div>
+      <div class="place-box">
+        <a class="sharingoffice-link" href={% url 'cafeList' %}>
+          <img class="place-image" src={% static "forRecommendation/images/main_studycafe.jpg" %}>
+          <div class = "name-text"> 공유 오피스 </div>
+        </a>
+      </div>
+    </div>
+  {% endblock content %}
