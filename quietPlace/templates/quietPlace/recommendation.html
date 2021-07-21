@@ -15,7 +15,7 @@
   {% block content %}
   <div class = "recommendation-intro">
     <span>
-      <img class="logo-image" src={% static "forRecommendation/images/logo.jpg" %}>
+      <img class="logo-image" src={% static "quietPlace/img/logo.jpg" %}>
       오늘은 어디에서 일하세요? 
     </span>
   </div>
@@ -27,19 +27,19 @@
   <div class="place-type-list">
       <div class="place-box">
         <a class="cafe-link" href={% url 'cafeList' %}>
-          <img class="place-image" src={% static "forRecommendation/images/main_cafe.jpg" %}>
+          <img class="place-image" src={% static "quietPlace/img/main_cafe.jpg" %}>
           <div class = "name-text"> 일반 카페 </div>
         </a>
       </div>
       <div class="place-box">
-        <a class="studycafe-link" href={% url 'cafeList' %}>
-          <img class="place-image" src={% static "forRecommendation/images/main_sharingoffice.jpg" %}>
+        <a class="studycafe-link" href={% url 'studyCafeList' %}>
+          <img class="place-image" src={% static "quietPlace/img/main_sharingoffice.jpg" %}>
           <div class = "name-text"> 스터디 카페 </div>
         </a>
       </div>
       <div class="place-box">
-        <a class="sharingoffice-link" href={% url 'cafeList' %}>
-          <img class="place-image" src={% static "forRecommendation/images/main_studycafe.jpg" %}>
+        <a class="sharingoffice-link" href={% url 'shareOfficeList' %}>
+          <img class="place-image" src={% static "quietPlace/img/main_studycafe.jpg" %}>
           <div class = "name-text"> 공유 오피스 </div>
         </a>
       </div>
