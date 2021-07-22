@@ -13,13 +13,13 @@
   <div class="landing_page mdl-typography--text-center" id="top">
     <div class="left_section half">
       <img src={% static "quietPlace/img/landing_page_img.png"%}/>
-      <button><a href="{% url 'recommendation' %}">공간 찾으러 가기</a></button>
     </div>
     <div class="right_section half">
       <div class="logo-font android-slogan description-head"><strong>당신의 취향을 생각하는<br>작업공간 큐레이팅 서비스</strong></div>
       <div class="logo-font android-sub-slogan description-paragraph">
         <p>카페부터 공유오피스까지,<br>우리 지역에서 내가 작업할 수 있는 조용한 공간은?<br><br><br>나의 취향에 딱 맞는 공간을<br>Quiet Place에게 추천받아보세요!</p>
       </div>
+      <div><button><a href="{% url 'recommendation' %}">공간 찾으러 가기</a></button></div>
     </div>
   </div>
 
@@ -27,11 +27,7 @@
   <footer class="android-footer mdl-mega-footer">
     <div class="mdl-mega-footer--top-section">
       <div class="mdl-mega-footer--left-section">
-        <button class="mdl-mega-footer--social-btn"></button>
-        &nbsp;
-        <button class="mdl-mega-footer--social-btn"></button>
-        &nbsp;
-        <button class="mdl-mega-footer--social-btn"></button>
+        <p class="mdl-typography--font-light" >Some features and devices may not be available in all areas</p>
       </div>
       <div class="mdl-mega-footer--right-section">
         <a class="mdl-typography--font-light" href="#top">
@@ -40,22 +36,22 @@
         </a>
       </div>
     </div>
-
-    <div class="mdl-mega-footer--middle-section">
-      <p class="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
-    </div>
     <div class="mdl-mega-footer--bottom-section">
-      <img class="footer-likelion-logo rounded-circle" src={% static "forMainpage/images/profile.png" %}>
+      <img class="footer-likelion-logo rounded-circle" src={% static "forMainpage/images/profile.png" %} style="border-radius:100%; margin-right: 25px; width: 40px; height: 40px;">
       <a class="android-link android-link-menu mdl-typography--font-light" id="developers-dropdown">
         개발자 괴롭히기..!
         <i class="material-icons">arrow_drop_up</i>
       </a>
       <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="developers-dropdown">
         <li class="mdl-menu__item">김좌훈</li>
-        <li class="mdl-menu__item">박평재</li>
+        <li class="mdl-menu__item">박평재 ppj050@snu.ac.kr</li>
         <li class="mdl-menu__item">이지우 wooyou07@snu.ac.kr</li>
       </ul>
-      <a class="android-link mdl-typography--font-light" href="#">나만의 공간 등록 신청하기</a>
+      <a class="android-link mdl-typography--font-light" href="https://forms.gle/mWtML7oj9Nb5SR1p9">나만의 공간 등록 신청하기</a>
+      {% if user.is_superuser %}
+        <a class="android-link mdl-typography--font-light" href="{% url 'new_cafe' %}">새로운 카페 모델 만들기</a>
+      {% endif %}
+      <a class="android-link mdl-typography--font-light">logo credit to Suram Kim</a>
     </div>
   </footer>
 </div>

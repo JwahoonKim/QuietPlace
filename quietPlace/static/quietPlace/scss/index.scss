@@ -21,25 +21,16 @@
     width:auto;
     margin-bottom: 30px;
   }
-  button {
-    padding: 10px 15px;
-    background-color: #ffc107;
-    border-color: #ffc107;
-    border-radius: 5px;
-    border-style: none;
-    a {
-      text-decoration: none;
-      font-weight: 600;
-      color: black;
-      font-size: 16px;
-    }
-  }
+}
+
+.description-head {
+  padding-top: 125px;
 }
 
 .right_section {
   div {
     text-align: left;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     margin-left: 15px;
     strong {
       font-size: 45px;
@@ -50,4 +41,23 @@
       line-height: 30px;
     }
   }
+  button {
+    padding: 10px 15px;
+    background-color: #fa5245;
+    border-color: #fa5245;
+    border-radius: 5px;
+    border-style: none;
+    margin-left: 10px;
+    box-shadow: 3px 3px 3px #00000088;
+    a {
+      text-decoration: none;
+      font-weight: 600;
+      color: white;
+      font-size: 16px;
+    }
+  }
+}
+
+.mdl-mega-footer--top-section {
+  text-align: center;
 }

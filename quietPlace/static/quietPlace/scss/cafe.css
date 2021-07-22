@@ -88,7 +88,8 @@ main {
 .review_area {
   background-color: #ececec;
   padding: 10px 20px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  margin-bottom: 50px !important; }
 
 .review_heading {
   margin-bottom: 100px; }
@@ -96,6 +97,11 @@ main {
 .review_heading_count {
   vertical-align: bottom;
   color: #616161; }
+
+.review_profile_pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%; }
 
 .review_input_area {
   height: 50px;
@@ -109,8 +115,9 @@ main {
   width: 100px;
   height: 25px;
   border-radius: 3px;
-  color: #fff;
-  background-color: #6c757d;
+  margin-bottom: 30px;
+  color: #ffffff;
+  background-color: #fa5245;
   border: 1px solid transparent; }
 
 .review_profile_pic {
