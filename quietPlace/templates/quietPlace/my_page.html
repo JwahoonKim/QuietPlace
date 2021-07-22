@@ -10,7 +10,11 @@
       <div class="js-fullheight d-flex justify-content-center align-items-center">
         <div class="col-md-8 text text-center">
           <div class="img mb-4" >
-            <img class="profile_pic" src="{% static 'forMypage/images/author.jpg' %}"/>
+            {% if user.profile.profile_pic %}
+            <img class="profile_pic" src="{{user.profile.profile_pic.url}}"/>
+            {% else %}
+            <img class="profile_pic" src={% static 'quietPlace/img/익명유저사진.png'%}/>
+            {% endif %}
           </div>
           <div class="desc">
 

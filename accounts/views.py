@@ -28,7 +28,9 @@ def signup(request):
 def revise(request):
     if request.method == 'POST':
         Profile.objects.filter(user=request.user).update(
-            nickname=request.POST['nickname'])
+            nickname=request.POST['nickname'],
+            email=request.POST['email']
+            )
         return redirect('/posts/my_page')
 
     return render(request, 'accounts/revise.html')

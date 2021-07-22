@@ -27,7 +27,7 @@
   <footer class="android-footer mdl-mega-footer">
     <div class="mdl-mega-footer--top-section">
       <div class="mdl-mega-footer--left-section">
-        <p class="mdl-typography--font-light">Some features and devices may not be available in all areas</p>
+        <p class="mdl-typography--font-light" >Some features and devices may not be available in all areas</p>
       </div>
       <div class="mdl-mega-footer--right-section">
         <a class="mdl-typography--font-light" href="#top">
@@ -37,17 +37,21 @@
       </div>
     </div>
     <div class="mdl-mega-footer--bottom-section">
-      <img class="footer-likelion-logo rounded-circle" src={% static "forMainpage/images/profile.png" %} style="border-radius:100">
+      <img class="footer-likelion-logo rounded-circle" src={% static "forMainpage/images/profile.png" %} style="border-radius:100%; margin-right: 25px; width: 40px; height: 40px;">
       <a class="android-link android-link-menu mdl-typography--font-light" id="developers-dropdown">
         개발자 괴롭히기..!
         <i class="material-icons">arrow_drop_up</i>
       </a>
       <ul class="mdl-menu mdl-js-menu mdl-menu--top-left mdl-js-ripple-effect" for="developers-dropdown">
         <li class="mdl-menu__item">김좌훈</li>
-        <li class="mdl-menu__item">박평재</li>
+        <li class="mdl-menu__item">박평재 ppj050@snu.ac.kr</li>
         <li class="mdl-menu__item">이지우 wooyou07@snu.ac.kr</li>
       </ul>
       <a class="android-link mdl-typography--font-light" href="https://forms.gle/mWtML7oj9Nb5SR1p9">나만의 공간 등록 신청하기</a>
+      {% if user.is_superuser %}
+        <a class="android-link mdl-typography--font-light" href="{% url 'new_cafe' %}">새로운 카페 모델 만들기</a>
+      {% endif %}
+      <a class="android-link mdl-typography--font-light">logo credit to Suram Kim</a>
     </div>
   </footer>
 </div>

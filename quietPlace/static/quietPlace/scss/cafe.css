@@ -98,6 +98,11 @@ main {
   vertical-align: bottom;
   color: #616161; }
 
+.review_profile_pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%; }
+
 .review_input_area {
   height: 50px;
   width: 90%;
@@ -110,6 +115,7 @@ main {
   width: 100px;
   height: 25px;
   border-radius: 3px;
+  margin-bottom: 30px;
   color: #ffffff;
   background-color: #fa5245;
   border: 1px solid transparent; }

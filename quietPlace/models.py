@@ -41,8 +41,6 @@ class Review(models.Model):
     star = models.IntegerField(
         default=1,
         validators=[MaxValueValidator(5), MinValueValidator(1)])
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
-
     def __str__(self):
         return f'[cafe: {self.cafe}], {self.content}'
 

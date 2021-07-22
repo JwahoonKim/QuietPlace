@@ -23,10 +23,14 @@
   }
 }
 
+.description-head {
+  padding-top: 125px;
+}
+
 .right_section {
   div {
     text-align: left;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     margin-left: 15px;
     strong {
       font-size: 45px;
@@ -52,4 +56,8 @@
       font-size: 16px;
     }
   }
+}
+
+.mdl-mega-footer--top-section {
+  text-align: center;
 }

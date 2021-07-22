@@ -87,13 +87,12 @@ def new_cafe(request):
         table = request.POST['table']
         socket = request.POST['socket']
         bathroom = request.POST['bathroom']
-        wifi = request.POST['wifi']
         volume = request.POST['volume']
         place_size = request.POST['place_size']
         discussion_room = request.POST['discussion_room']
         booking_available = request.POST['booking_available']
         tag = Tag.objects.create(
-            cafe=cafe, chair=chair, table=table, socket=socket, bathroom=bathroom, wifi=wifi, volume=volume,
+            cafe=cafe, chair=chair, table=table, socket=socket, bathroom=bathroom, volume=volume,
             place_size=place_size, discussion_room=discussion_room, booking_available=booking_available
         )
         return redirect(f'/posts/{cafe.id}')
@@ -114,7 +113,7 @@ class Reviewview:
     def delete(request, id, cid):
         review = Review.objects.get(id=cid)
         review.delete()
-        return redirect(f'/posts/cafe/{id}')
+        return redirect(f'/posts/{id}')
 
 
 def cafe_like(request, id):
