@@ -7,12 +7,11 @@ const handleCafe = (switching) => {
 
     // 태그를 on 했을 경우 
     const onFiltering = () => {
+        const cafes = getCafe();
+        cafes.forEach(cafe => {
+            cafe.classList.remove('hide');
+        })
         filterCondition.forEach((tag_positive) => {
-            console.log(filterCondition)
-            const cafes = getCafe();
-            cafes.forEach(cafe => {
-                cafe.classList.remove('hide');
-            })
             HideNotPositiveCafe(tag_positive);
         })
     }
@@ -53,7 +52,6 @@ const handleTag = () => {
     const getTags = () => {
         return [...document.querySelectorAll(".filter-tag-button")];
     }
-    // console.log(getTags())
 
     const handleOnClick = (tagDom) => {
         tagDom.onclick = () => {
