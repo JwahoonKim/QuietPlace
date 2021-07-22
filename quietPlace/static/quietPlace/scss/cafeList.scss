@@ -9,7 +9,7 @@ h5 {
 }
 
 .filter-tag-button {
-  border: 1px solid  #808080;
+  border: 1px dashed  #808080;
   border-radius: 10px;
   font-size: 15px;;
   padding: 7px;
@@ -46,6 +46,7 @@ h5 {
   margin: 10px;
   margin-bottom: 30px;
   background-size: cover;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .black-gradiant {
