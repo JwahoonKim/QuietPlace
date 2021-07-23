@@ -42,21 +42,21 @@ def likeCafe(request):
 def cafeList(request):
     cafes = Cafe.objects.filter(category="카페")
     region_buttons = [['#서울대입구역', '서울대입구역'], ['#대학동', '대학동']]
-    tag_buttons = [ ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#와이파이 있어요', 'wifi'], ['#조용해요', 'volume'],
+    tag_buttons = [ ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#조용해요', 'volume'],
                    ['#공간이 넓어요', 'place_size'], ['#다인원 토론공간이 있어요', 'discussion_room'], ['#예약이 가능해요', 'booking_available']]
     return render(request, 'quietPlace/cafeList.html', {"cafes": cafes, "tag_buttons": tag_buttons, 'region_buttons': region_buttons})
 
 def studyCafeList(request):
     cafes = Cafe.objects.filter(category="스터디카페")
     region_buttons = [['#서울대입구역', '서울대입구역'], ['#대학동', '대학동']]
-    tag_buttons = [ ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#와이파이 있어요', 'wifi'], ['#조용해요', 'volume'],
+    tag_buttons = [ ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#조용해요', 'volume'],
                    ['#공간이 넓어요', 'place_size'], ['#다인원 토론공간이 있어요', 'discussion_room'], ['#예약이 가능해요', 'booking_available']]
     return render(request, 'quietPlace/cafeList.html', {"cafes": cafes, "tag_buttons": tag_buttons, 'region_buttons': region_buttons})
 
 def shareOfficeList(request):
     cafes = Cafe.objects.filter(category="공유오피스")
     region_buttons = [['#서울대입구역', '서울대입구역'], ['#대학동', '대학동']]
-    tag_buttons = [ ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#와이파이 있어요', 'wifi'], ['#조용해요', 'volume'],
+    tag_buttons = [ ['#의자가 편해요', 'chair'], ['#테이블이 커요', 'table'], ['#콘센트가 많아요', 'socket'], ['#화장실이 청결해요', 'bathroom'], ['#조용해요', 'volume'],
                    ['#공간이 넓어요', 'place_size'], ['#다인원 토론공간이 있어요', 'discussion_room'], ['#예약이 가능해요', 'booking_available']]
     return render(request, 'quietPlace/cafeList.html', {"cafes": cafes, "tag_buttons": tag_buttons, 'region_buttons': region_buttons})
 
@@ -71,6 +71,7 @@ def new_cafe(request):
     if request.method == 'POST':
         cafe_name = request.POST['cafe_name']
         cafe_description = request.POST['cafe_description']
+        short_description = request.POST['short_description']
         working_hour = request.POST['working_hour']
         working_detail = request.POST['working_detail']
         phone = request.POST['phone']
@@ -78,7 +79,7 @@ def new_cafe(request):
         category = request.POST['category']
         region = request.POST['region']
         cafe = Cafe.objects.create(
-            cafe_name=cafe_name, cafe_description=cafe_description, working_hour=working_hour, working_detail=working_detail, phone=phone, address=address, category=category, region=region
+            cafe_name=cafe_name, cafe_description=cafe_description, short_description=short_description, working_hour=working_hour, working_detail=working_detail, phone=phone, address=address, category=category, region=region
         )
         for img in request.FILES.getlist('imgs'):
             Cafe_Photo.objects.create( cafe = cafe, cafe_img = img )
