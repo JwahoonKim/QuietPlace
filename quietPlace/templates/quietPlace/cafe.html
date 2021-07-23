@@ -75,37 +75,37 @@
                 <div class="tag-column">
                   <div class="tag-row">
                     <img class="cafe_tag_icon" src="{% static 'quietPlace/img/no-sound.svg'%}" alt="">
-                    <strong>소음 수준: {{ cafe.tag.volume|slice:":-10" }}</strong>
+                    <strong>소음 수준: {{ cafe.volume|slice:":-10" }}</strong>
                   </div>
                   <div class="tag-row">
                     <img class="cafe_tag_icon" src="{% static 'quietPlace/img/dining.svg'%}" alt="">
-                    <strong>의자: {{ cafe.tag.chair|slice:":-10" }}</strong>
+                    <strong>의자: {{ cafe.chair|slice:":-10" }}</strong>
                   </div>
                   <div class="tag-row">
                     <img class="cafe_tag_icon" src="{% static 'quietPlace/img/plugging.svg'%}" alt="">
-                    <strong>콘센트 좌석: {{ cafe.tag.socket|slice:":-10" }}</strong>
+                    <strong>콘센트 좌석: {{ cafe.socket|slice:":-10" }}</strong>
                   </div>
                   <div class="tag-row">
                     <img class="cafe_tag_icon" src="{% static 'quietPlace/img/free-icon-cafe-1139699.png'%}" alt="">
-                    <strong>공간 크기: {{ cafe.tag.place_size|slice:":-10" }}</strong>
+                    <strong>공간 크기: {{ cafe.place_size|slice:":-10" }}</strong>
                   </div>
                 </div>
                 <div class="tag-column">
                   <div class="tag-row">
                     <img class="cafe_tag_icon" src="{% static 'quietPlace/img/sanitary.svg'%}" alt="">
-                    <strong>화장실: {{ cafe.tag.bathroom|slice:":-10" }}</strong>
+                    <strong>화장실: {{ cafe.bathroom|slice:":-10" }}</strong>
                   </div>
                   <div class="tag-row">
                     <img class="cafe_tag_icon" src="{% static 'quietPlace/img/table.svg'%}" alt="">
-                    <strong>테이블 크기: {{ cafe.tag.table|slice:":-10" }}</strong>
+                    <strong>테이블 크기: {{ cafe.table|slice:":-10" }}</strong>
                   </div>
                   <div class="tag-row">
                     <img class="cafe_tag_icon" src="{% static 'quietPlace/img/coworking.svg'%}" alt="">
-                    <strong>다인원 토론공간: {{ cafe.tag.discussion_room|slice:":-10" }}</strong>
+                    <strong>다인원 토론공간: {{ cafe.discussion_room|slice:":-10" }}</strong>
                   </div>
                   <div class="tag-row">
                     <img class="cafe_tag_icon" src="{% static 'quietPlace/img/free-icon-booking-5110947.png'%}" alt="">
-                    <strong>예약 가능 여부: {{ cafe.tag.booking_available|slice:":-10" }}</strong>
+                    <strong>예약 가능 여부: {{ cafe.booking_available|slice:":-10" }}</strong>
                   </div>
                 </div>
               </div>  
@@ -157,6 +157,9 @@
                 {% endfor %%}
               </div>
           </div>
+          {% if user.is_superuser %}
+            <a href="{% url 'cafe_revise' id=cafe.id %}">카페 모델 고치기</a>
+          {% endif %}
         </div>
       </main>
     </div>
