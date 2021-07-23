@@ -13,6 +13,7 @@
 {% endblock style %}
 {% block content %}
 <div class="cafe-list-container">
+  <div class="tag-box">
   <div class="tag-list">
     <h5 class="tag-select-heading">지역</h5>
     {% for region_button in region_buttons %}
@@ -24,6 +25,7 @@
       {{region_button.0}}
     </button>
     {% endfor %}
+  </div>
   </div>
   <div class="tag-list">
     <h5 class="tag-select-heading">태그</h5>
