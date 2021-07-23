@@ -17,25 +17,25 @@
   </head>
   <body>
     <div class="container">
-      <div class="container-fluid mt-5 mb-5"><h1>카페 추가하기</h1></div>
+      <div class="container-fluid mt-5 mb-5"><h1>카페 수정하기</h1></div>
       <form id="newcafe-form" method="POST" enctype="multipart/form-data" action="{% url 'new_cafe' %}">
         {% csrf_token %}
-        <div class="container-fluid mb-5"><p>카페명</p><input type='text' placeholder='카페명' name='cafe_name'/></div>
-        <div class="container-fluid mb-5"><p>운영 시간</p><input type='textarea' placeholder='ex 월화수목금 10:00~22:00' name='working_hour'/></div>
-        <div class="container-fluid mb-5"><p>운영 상세</p><input type='textarea' placeholder='ex 휴일 및 운영 상세 정보' name='working_detail'/></div>
-        <div class="container-fluid mb-5"><p>대표 전화번호</p><input type='text' placeholder='ex 01011111111' name='phone'/></div>
-        <div class="container-fluid mb-5"><p>지역(서울대입구역, 대학동 중 택)</p><input placeholder=' 지역 입력 ' name='region'/></div>
+        <div class="container-fluid mb-5"><p>카페명</p><input type='text' placeholder='카페명' name='cafe_name' value="{{cafe.cafe_name}}"/></div>
+        <div class="container-fluid mb-5"><p>운영 시간</p><input type='textarea' placeholder='ex 월화수목금 10:00~22:00' name='working_hour' value="{{cafe.working_hour}}"/></div>
+        <div class="container-fluid mb-5"><p>운영 상세</p><input type='textarea' placeholder='ex 휴일 및 운영 상세 정보' name='working_detail' value="{{cafe.working_detail}}"/></div>
+        <div class="container-fluid mb-5"><p>대표 전화번호</p><input type='text' placeholder='ex 01011111111' name='phone' value="{{cafe.phone}}"/></div>
+        <div class="container-fluid mb-5"><p>지역(서울대입구역, 대학동 중 택)</p><input placeholder=' 지역 입력 ' name='region' value="{{cafe.region}}"/></div>
         <div>★★★★ 주소는 네이버에 먼저 검색해서 나오는지 확인하고 넣어주세요 ★★★★</div>
-        <div class="container-fluid mb-5"><p>주소</p><input placeholder=' 도로명주소 입력' name='address'/></div>
-        <div class="container-fluid mb-5"><p>공간 유형(카페, 스터디카페, 공유오피스 중 택)</p><input placeholder=' 공간 유형 입력 ' name='category'/></div>
-        <div class="container-fluid mb-5"><p>카페 이미지</p><input type="file" name="imgs" multiple></div>
-        <div class="container-fluid mb-5"><p>짧은 설명 - 리스트 노출용으로 20-30자 내외</p><input type='text' placeholder='짧은 설명' name='short_description'/></div>
-        <div class="container-fluid mb-5"><p>카페 설명</p><textarea placeholder='카페 소개 간략히' name="cafe_description" rows="20" cols="70"></textarea></div>
+        <div class="container-fluid mb-5"><p>주소</p><input placeholder=' 도로명주소 입력' name='address' value="{{cafe.address}}"/></div>
+        <div class="container-fluid mb-5"><p>공간 유형(카페, 스터디카페, 공유오피스 중 택)</p><input placeholder=' 공간 유형 입력 ' name='category' value="{{cafe.category}}"/></div>
+        <div class="container-fluid mb-5"><p>카페 이미지는 여기서는 추가만! 삭제는 쉘켜서 해야함... 아직 구현 못함 ㅜㅜ</p><input type="file" name="imgs" multiple></div>
+        <div class="container-fluid mb-5"><p>짧은 설명 - 리스트 노출용으로 20-30자 내외</p><input type='text' placeholder='짧은 설명' name='short_description' value="{{cafe.short_description}}"/></div>
+        <div class="container-fluid mb-5"><p>카페 설명</p><textarea placeholder='카페 소개 간략히' name="cafe_description" rows="20" cols="70" value="{{cafe.cafe_description}}"></textarea></div>
         <section class="container-fluid mt-5 mb-5" id="tag-selecting-area">
-          <h1 class="mt-5 mb-5">태그 선택 --> 내용, positive 와 같은 형식을 꼭 지켜주세요! 내용+ 컴마 + 띄어쓰기 + (positive or negative)</h1>
+          <h1 class="mt-5 mb-5">태그 선택 --> 내용, positive 와 같은 형식을 꼭 지켜주세요! 내용+ 컴마 + 띄어쓰기 + (positive or negative), (인풋 밸류 다 지워야 옵션 나와요!)</h2>
           <div>
             <label for="exampleDataList1" class="form-label">의자의 편안함</label>
-            <input class="form-control" list="chairOptions" id=exampleDataList1 placeholder="코멘트, positive or negative" name="chair">
+            <input class="form-control" list="chairOptions" id=exampleDataList1 placeholder="코멘트, positive or negative" name="chair" value="{{cafe.chair}}">
             <datalist id="chairOptions">
               <option value="편안해요, positive">
               <option value="불편해요, negative">
@@ -43,7 +43,7 @@
           </div>
           <div>
             <label for="exampleDataList2" class="form-label">테이블 크기</label>
-            <input class="form-control" list="tableOptions" id=exampleDataList2 placeholder="코멘트, positive or negative" name="table">
+            <input class="form-control" list="tableOptions" id=exampleDataList2 placeholder="코멘트, positive or negative" name="table" value="{{cafe.table}}">
             <datalist id="tableOptions">
               <option value="넓어요, positive">
               <option value="조금 좁아요, negative">
@@ -51,7 +51,7 @@
           </div>
           <div>
             <label for="exampleDataList3" class="form-label">콘센트 수</label>
-            <input class="form-control" list="socketOptions" id=exampleDataList3 placeholder="코멘트, positive or negative" name="socket">
+            <input class="form-control" list="socketOptions" id=exampleDataList3 placeholder="코멘트, positive or negative" name="socket" value="{{cafe.socket}}">
             <datalist id="socketOptions">
               <option value="충분해요, positive">
               <option value="부족해요, negative">
@@ -59,7 +59,7 @@
           </div>
           <div>
             <label for="exampleDataList4" class="form-label">화장실 청결도</label>
-            <input class="form-control" list="bathroomOptions" id=exampleDataList4 placeholder="코멘트, positive or negative" name="bathroom">
+            <input class="form-control" list="bathroomOptions" id=exampleDataList4 placeholder="코멘트, positive or negative" name="bathroom" value="{{cafe.bathroom}}">
             <datalist id="bathroomOptions">
               <option value="청결해요, positive">
               <option value="청결하지 않아요, negative">
@@ -67,7 +67,7 @@
           </div>
           <div>
             <label for="exampleDataList6" class="form-label">소음 수준</label>
-            <input class="form-control" list="volumeOptions" id=exampleDataList6 placeholder="코멘트, positive or negative" name="volume">
+            <input class="form-control" list="volumeOptions" id=exampleDataList6 placeholder="코멘트, positive or negative" name="volume" value="{{cafe.volume}}">
             <datalist id="volumeOptions">
               <option value="조용해요, positive">
               <option value="조금 시끄러워요, negative">
@@ -75,7 +75,7 @@
           </div>
           <div>
             <label for="exampleDataList7" class="form-label">공간 크기</label>
-            <input class="form-control" list="place_sizeOptions" id=exampleDataList7 placeholder="코멘트, positive or negative" name="place_size">
+            <input class="form-control" list="place_sizeOptions" id=exampleDataList7 placeholder="코멘트, positive or negative" name="place_size" value="{{cafe.place_size}}">
             <datalist id="place_sizeOptions">
               <option value="공간이 넓어요, positive">
               <option value="공간이 조금 좁아요, negative">
@@ -83,7 +83,7 @@
           </div>
           <div>
             <label for="exampleDataList8" class="form-label">다인원 토론공간</label>
-            <input class="form-control" list="discussion_roomOptions" id=exampleDataList8 placeholder="코멘트, positive or negative" name="discussion_room">
+            <input class="form-control" list="discussion_roomOptions" id=exampleDataList8 placeholder="코멘트, positive or negative" name="discussion_room" value="{{cafe.discussion_room}}">
             <datalist id="discussion_roomOptions">
               <option value="있어요, positive">
               <option value="없어요, negative">
@@ -91,7 +91,7 @@
           </div>
           <div>
             <label for="exampleDataList9" class="form-label">예약 가능 여부</label>
-            <input class="form-control" list="booking_availableOptions" id=exampleDataList9 placeholder="코멘트, positive or negative" name="booking_available">
+            <input class="form-control" list="booking_availableOptions" id=exampleDataList9 placeholder="코멘트, positive or negative" name="booking_available" value="{{cafe.booking_available}}">
             <datalist id="booking_availableOptions">
               <option value="가능해요, positive">
               <option value="안돼요, negative">
