@@ -1,7 +1,7 @@
 from django.http.request import HttpRequest
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from quietPlace.models import Cafe, Review, Cafe_Photo, Like, Tag
+from quietPlace.models import Cafe, Review, Cafe_Photo, Like
 from django.contrib.auth.models import User
 from accounts.models import Profile
 from django.http import JsonResponse
@@ -78,12 +78,6 @@ def new_cafe(request):
         address = request.POST['address']
         category = request.POST['category']
         region = request.POST['region']
-        cafe = Cafe.objects.create(
-            cafe_name=cafe_name, cafe_description=cafe_description, short_description=short_description, working_hour=working_hour, working_detail=working_detail, phone=phone, address=address, category=category, region=region
-        )
-        for img in request.FILES.getlist('imgs'):
-            Cafe_Photo.objects.create( cafe = cafe, cafe_img = img )
-
         chair = request.POST['chair']
         table = request.POST['table']
         socket = request.POST['socket']
@@ -92,10 +86,12 @@ def new_cafe(request):
         place_size = request.POST['place_size']
         discussion_room = request.POST['discussion_room']
         booking_available = request.POST['booking_available']
-        tag = Tag.objects.create(
-            cafe=cafe, chair=chair, table=table, socket=socket, bathroom=bathroom, volume=volume,
+        cafe = Cafe.objects.create(
+            cafe_name=cafe_name, cafe_description=cafe_description, short_description=short_description, working_hour=working_hour, working_detail=working_detail, phone=phone, address=address, category=category, region=region, chair=chair, table=table, socket=socket, bathroom=bathroom, volume=volume,
             place_size=place_size, discussion_room=discussion_room, booking_available=booking_available
         )
+        for img in request.FILES.getlist('imgs'):
+            Cafe_Photo.objects.create( cafe = cafe, cafe_img = img )
         return redirect(f'/posts/{cafe.id}')
 
 
