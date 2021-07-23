@@ -1,0 +1,10 @@
+.btn-custom {
+  border-bottom: none !important; }
+
+.profile_pic {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%; }
+
+/*# sourceMappingURL=my_page.css.map */

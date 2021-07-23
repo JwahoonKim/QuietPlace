@@ -171,7 +171,7 @@ body {
   color: #222;
   font-weight: 400;
   font-family: "Montserrat";
-  background-image: url("../images/login-bg.jpg");
+  background-color: #ebebeb;
   background-repeat: no-repeat;
   background-size: cover;
   -moz-background-size: cover;
@@ -325,11 +325,7 @@ body {
   color: #fff;
   text-transform: uppercase;
   border: none;
-  background-image: -moz-linear-gradient(to left, #74ebd5, #9face6);
-  background-image: -ms-linear-gradient(to left, #74ebd5, #9face6);
-  background-image: -o-linear-gradient(to left, #74ebd5, #9face6);
-  background-image: -webkit-linear-gradient(to left, #74ebd5, #9face6);
-  background-image: linear-gradient(to left, #74ebd5, #9face6);
+  background-color: #fa5245
 }
 
 input[type="checkbox"]:not(old) {
@@ -435,6 +431,8 @@ input[type="checkbox"]:not(old):checked + label > span:before {
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  padding-top: 30px;
+  border-color: black;
 }
 
 /*# sourceMappingURL=style.css.map */

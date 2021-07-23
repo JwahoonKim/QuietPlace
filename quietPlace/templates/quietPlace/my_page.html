@@ -1,24 +1,31 @@
 {% extends 'quietPlace/my_page_base.html' %}
-
-
+{% load static %}
+{% load sass_tags %}
+{% block style %}
+  <link rel="stylesheet" type="text/css" href="{% sass_src 'quietPlace/scss/my_page.scss' %}"/>
+{% endblock style %}
 {% block content %}
-  <div id="colorlib-main">
-    <div class="hero-wrap js-fullheight" style="background-image: url(forMypage/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap js-fullheight" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="js-fullheight d-flex justify-content-center align-items-center">
         <div class="col-md-8 text text-center">
-          <div class="img mb-4" style="background-image: url (forMypage/images/author.jpg);"></div>
-            <img src="{{photo.profile_pic.url}}" width="50"><br>
+          <div class="img mb-4" >
+            {% if user.profile.profile_pic %}
+            <img class="profile_pic" src="{{ user.profile.profile_pic.url }}"/>
+            {% else %}
+            <img class="profile_pic" src={% static 'quietPlace/img/익명유저사진.png'%}/>
+            {% endif %}
+          </div>
           <div class="desc">
+
             <h2 class="subheading">내 프로필</h2>
             <h1 class="mb-4">{{ user.profile.nickname }}</h1>
             <p class="mb-4">설정한 아이디 : {{ user.get_username }}</p>                
-            <p class="mb-4">설정한 이메일 : {{ user.profile.email }}</p><br><br>
-            <p><a href={% url 'revise' %} class="btn-custom">프로필 변경하기 ></a>
+            <p class="mb-4">설정한 이메일 : {{ user.profile.email }}</p><br>
+            <p><a href={% url 'revise' %} class="btn-custom">프로필 변경하기 ></a><br><br>
                <a href={% url 'change_password' %} class="btn-custom">비밀번호 변경하기 ></a></p>           
           </div>
         </div>
       </div>
     </div>
-  </div>
 {% endblock %}

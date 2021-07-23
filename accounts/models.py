@@ -9,8 +9,8 @@ import os
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nickname = models.CharField(max_length=20, verbose_name="사용자 닉네임", default="닉네임을 설정해주세요")
+    profile_pic = models.ImageField(upload_to='images/profile_pic', blank=True, null=True)
     email = models.EmailField(max_length=254, verbose_name="사용자 이메일", null=True, blank=True)
-    profile_pic = models.ImageField(upload_to='images/', verbose_name="사용자 프로필사진", blank=True, null=True)
     # 아래는 뭘까 ???
     is_login = False
 

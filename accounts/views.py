@@ -18,7 +18,10 @@ def signup(request):
                 username=request.POST['username'], password=request.POST['password'])
             user.profile.nickname = request.POST['nickname']
             user.profile.email = request.POST['email']
-            user.profile.profile_pic = request.POST['profile_pic']
+            try:
+                user.profile.profile_pic = request.FILES['profile_pic']
+            except:
+                pass
             auth.login(request, user,
                        backend='django.contrib.auth.backends.ModelBackend')
             user.profile.save()
@@ -29,7 +32,10 @@ def signup(request):
 def revise(request):
     if request.method == 'POST':
         Profile.objects.filter(user=request.user).update(
-            nickname=request.POST['nickname'])
+            nickname=request.POST['nickname'],
+            email=request.POST['email'],
+            profile_pic=request.FILES['profile_pic']
+            )
         return redirect('/posts/my_page')
 
     return render(request, 'accounts/revise.html')

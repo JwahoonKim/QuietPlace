@@ -1,4 +1,162 @@
 a {
   color: #616161 !important;
+  text-decoration: none;
 }
 
+h2 {
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  background-color: #e6e3e3;
+}
+
+.cafe_layout {
+  width: 60%;
+  margin: 30px 0px;
+}
+
+.cafe_card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.cafe_card_img {
+  background-position: center;
+  background-size: 100%;
+  width: auto;
+  height: 300px;
+  padding: 0px 50px;
+  display: flex;  
+  justify-content: flex-end;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.more-photo {
+  margin-top: 230px;
+
+  button {
+    color: rgba($color: #ffffff, $alpha: 1)
+  }
+}
+
+.cafe_card_header {
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  
+  .cafe-star {
+    float: left;
+  }
+}
+
+.cafe_box {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 50px;
+}
+
+.cafe_box {
+  div {
+    margin: 15px 0px; 
+  }
+}
+
+.like-container {
+  display: flex;
+  align-items:center;
+  
+  a {
+    display: flex;
+    align-items:flex-end;
+
+    span {
+      padding: 0px 5px;
+    }
+  }
+}
+
+.cafe_tag_icon {
+  width: 35px;
+  height: auto;
+  margin: 0px 10px;
+}
+
+.cafe-tags {
+  display: flex;
+  justify-content: flex-start;
+  .tag-column {
+    display: inherit;
+    flex-direction: column;
+    margin-right: auto;
+    .tag-row {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.map_box {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.review_area {
+  background-color: #ececec;
+  padding: 10px 20px;
+  border-radius: 5px; 
+  margin-bottom: 50px !important;
+}
+
+.review_heading {
+  margin-bottom: 100px;
+}
+
+.review_heading_count {
+  vertical-align: bottom;
+  color: #616161;
+}
+
+.review_profile_pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+.review_input_area {
+  height:50px; 
+  width:90%;
+  border-color: rgba(179, 179, 179, 0.719);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+.review-submit-button {
+  width: 100px;
+  height: 25px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  color: #ffffff;
+  background-color: #fa5245;
+  border: 1px solid transparent;
+}
+
+.review_profile_pic {
+  border-radius: 100%;
+}
+
+.material-icons {
+  font-size: 40px;
+}

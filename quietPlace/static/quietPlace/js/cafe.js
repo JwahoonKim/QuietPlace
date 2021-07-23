@@ -1,4 +1,4 @@
-const onCreateReview = async (cafeId) => {
+const onReviewCreate = async (cafeId) => {
   const reviewInputElement = document.getElementById("review-input");
   if (reviewInputElement.value) {
     let data = new FormData();
@@ -35,7 +35,6 @@ const getReviewElement = (
   let newReviewElement = document.createElement("div");
   newReviewElement.setAttribute("id", `${reviewId}-review`);
   newReviewElement.innerHTML = `<header class="comment__header">
-                                  <img src={% static "forCafe/images/co1.jpg" %} class="comment__avatar" />
                                   <div class="comment__author">
                                     <strong class="review-nickname">${author_nickname}</strong>
                                   </div>
@@ -50,7 +49,7 @@ const onReviewDelete = async (cafeId, reviewId) => {
   if (confirm("정말 삭제하시겠습니까?") === true) {
     const review = document.getElementById(`${reviewId}-review`);
      console.log(cafeId);
-    await axios.delete(`/posts/cafe/${cafeId}/cafe_review/${reviewId}/`);
+    await axios.delete(`/posts/${cafeId}/cafe_review/${reviewId}/`);
     review.remove();
   }
 };
@@ -70,3 +69,5 @@ const onClickLikeButton = async (cafeId) => {
     }
 
 }
+
+console.log('connected')

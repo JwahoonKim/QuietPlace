@@ -1,128 +1,129 @@
-#left-img {
-  border-radius: 25px;
-  width: 100%;
-  height: 100%; }
+a {
+  color: #616161 !important;
+  text-decoration: none; }
 
-#right-img_1 {
-  margin-bottom: 5px;
-  border-radius: 25px;
-  width: 100%;
-  height: 100%; }
+h2 {
+  font-weight: 600; }
 
-#right-img_more {
-  border-radius: 25px;
-  width: 100%;
-  height: 100%; }
+h3 {
+  font-weight: 600;
+  margin-bottom: 20px; }
 
-.cafe-photo {
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: center; }
-
-.cafe-photo-left {
-  width: 40%;
-  height: 30%;
-  margin-right: 10px; }
-
-.cafe-photo-right {
-  width: 20%; }
-
-.cafe-info {
+main {
   display: flex;
   justify-content: center;
-  margin-bottom: 15px; }
+  background-color: #e6e3e3; }
 
-.cafe-info-left {
-  width: 40%;
-  height: 125px;
-  text-align: center;
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 15px; }
+.cafe_layout {
+  width: 60%;
+  margin: 30px 0px; }
 
-.cafe-info-left-upper {
-  display: flex;
-  justify-content: space-between;
-  border-radius: 10px;
-  margin-bottom: 10px; }
-
-.cafe-info-left-name {
-  margin-bottom: 10px;
-  font-size: x-large;
-  margin-left: 30px; }
-
-.cafe-info-right {
-  width: 20%;
-  height: 125px;
-  margin-left: 10px;
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 10px;
+.cafe_card {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  overflow-y: scroll; }
+  align-items: stretch;
+  background-color: white;
+  border-radius: 10px; }
 
-.info-data {
-  color: gray; }
-
-.cafe-info-tags {
-  padding: 20px;
-  margin-left: 20%;
-  width: 60%;
-  height: 200px;
-  border: 2px solid black;
-  border-radius: 10px;
+.cafe_card_img {
+  background-position: center;
+  background-size: 100%;
+  width: auto;
+  height: 300px;
+  padding: 0px 50px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: flex-end;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; }
+
+.more-photo {
+  margin-top: 230px; }
+  .more-photo button {
+    color: white; }
+
+.cafe_card_header {
+  padding: 20px 50px;
+  display: flex;
   justify-content: space-between; }
+  .cafe_card_header .cafe-star {
+    float: left; }
 
-.cafe-reviews {
-  margin-top: 30px; }
-
-.cafe-info-tags > img {
-  width: 50px; }
-
-.reviews-title {
+.cafe_box {
   display: flex;
-  width: 60%;
-  margin-left: 20%;
-  justify-content: space-between; }
+  flex-direction: column;
+  padding: 0px 50px; }
 
-.reviews-title-name {
-  font-size: xx-large;
-  font-weight: 800; }
+.cafe_box div {
+  margin: 15px 0px; }
 
-.reviews {
+.like-container {
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  margin-left: 20%;
-  width: 60%;
-  margin-top: 30px; }
-
-.review {
-  padding: 20px;
-  margin-right: 40px;
-  margin-bottom: 20px;
-  background-color: lightgray;
-  border-radius: 10px;
-  width: 100vw;
-  height: 20vh; }
-
-.review-upper {
-  display: flex;
-  justify-content: flex-start;
   align-items: center; }
+  .like-container a {
+    display: flex;
+    align-items: flex-end; }
+    .like-container a span {
+      padding: 0px 5px; }
 
-.review-user-profile {
-  margin-right: 15px;
-  width: 50px;
-  height: 50px; }
+.cafe_tag_icon {
+  width: 35px;
+  height: auto;
+  margin: 0px 10px; }
 
-.review-user-profile > .profile-img {
-  height: 100%;
-  max-width: 100%;
-  border-radius: 20px; }
+.cafe-tags {
+  display: flex;
+  justify-content: flex-start; }
+  .cafe-tags .tag-column {
+    display: inherit;
+    flex-direction: column;
+    margin-right: auto; }
+    .cafe-tags .tag-column .tag-row {
+      display: flex;
+      align-items: center; }
+
+.map_box {
+  display: flex;
+  justify-content: flex-start; }
+
+.review_area {
+  background-color: #ececec;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 50px !important; }
+
+.review_heading {
+  margin-bottom: 100px; }
+
+.review_heading_count {
+  vertical-align: bottom;
+  color: #616161; }
+
+.review_profile_pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%; }
+
+.review_input_area {
+  height: 50px;
+  width: 90%;
+  border-color: rgba(179, 179, 179, 0.719);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px; }
+
+.review-submit-button {
+  width: 100px;
+  height: 25px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  color: #ffffff;
+  background-color: #fa5245;
+  border: 1px solid transparent; }
+
+.review_profile_pic {
+  border-radius: 100%; }
+
+.material-icons {
+  font-size: 40px; }
 
 /*# sourceMappingURL=cafe.css.map */
