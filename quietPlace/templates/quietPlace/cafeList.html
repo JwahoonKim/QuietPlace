@@ -6,6 +6,10 @@
   type="text/css"
   href="{% sass_src 'quietPlace/scss/cafeList.scss' %}"
 />
+<link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+/>
 {% endblock style %}
 {% block content %}
 <div class="cafe-list-container">
@@ -38,15 +42,31 @@
     <div id="{{cafe.id}}-cafe-box" class="cafe-box">
       <div class="cafe-post" style="background-image: url('{{cafe.cafe_photo_set.all.0.cafe_img.url}}')">
         <div class="black-gradiant">
-        <a href="{% url 'cafe' id=cafe.id %}">
           <div class="card-box">
-            <div class="card-title-box">
-              <div href="{% url 'cafe' id=cafe.id %}" class="card-title">
-                {{ cafe.cafe_name }}
-              </div>
-              <li class="card-title-region {{cafe.region}}_positive" style="list-style: none;">{{ cafe.region }} </li>
+            <div class="meta__favorites like-container">
+              {% if user.is_authenticated %}
+                <a style="color: #616161"
+                  href="#" id='{{ cafe.id }}-like-button' onclick="onClickLikeButton({{cafe.id}})"
+                > 
+                  {% if user in cafe.like_users.all %}
+                    <i class="material-icons" role="presentation" style="color: #dc3545;">favorite</i> <span id="{{cafe.id}}-cafe-count">{{ cafe.like_users.count }}</span>
+                  {% else %}
+                    <i class="material-icons" role="presentation" style="color: #616161;">favorite</i> <span id="{{cafe.id}}-cafe-count">{{ cafe.like_users.count }}</span>
+                  {% endif %}
+                </a>
+              {% else %}
+                  <i class="material-icons" role="presentation" style="color: #dc3545;">favorite</i> <span id="{{cafe.id}}cafe-count">{{ cafe.like_users.count }}</span>
+              {% endif %}  
             </div>
-            <div class="card-description-box">{{ cafe.cafe_description }}</div>
+            <a href="{% url 'cafe' id=cafe.id %}">
+              <div class="card-title-box">
+                <div href="{% url 'cafe' id=cafe.id %}" class="card-title">
+                  {{ cafe.cafe_name }}
+                </div>
+                <li class="card-title-region {{cafe.region}}_positive" style="list-style: none;">{{ cafe.region }} </li>
+              </div>
+              <div class="card-description-box">{{ cafe.short_description }}</div>
+            </a>
           </div>
           <ul class="list-group">
             {% if cafe.tag.chair|slice:"-8:" == "positive" %}
@@ -60,9 +80,6 @@
             {% endif %}
             {% if cafe.tag.bathroom|slice:"-8:" == "positive" %}
               <li class="list-group-item bathroom_positive">#화장실이 {{cafe.tag.bathroom|slice:":-10"}} </li>
-            {% endif %}
-            {% if cafe.tag.wifi|slice:"-8:" == "positive" %}
-              <li class="list-group-item wifi_positive">#와이파이가 {{cafe.tag.wifi|slice:":-10"}} </li>
             {% endif %}
             {% if cafe.tag.volume|slice:"-8:" == "positive" %}
               <li class="list-group-item volume_positive">#{{cafe.tag.volume|slice:":-10"}} </li>

@@ -24,10 +24,14 @@
 }
 
 .description-head {
-  padding-top: 125px;
+  padding-top: 60px;
 }
 
 .right_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   div {
     text-align: left;
     margin-bottom: 40px;
