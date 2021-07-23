@@ -15,7 +15,7 @@ class Profile(models.Model):
     is_login = False
 
     def __str__(self):
-        return f'id={self.id}, user_id={self.user.id}, nickname={self.nickname}'
+        return f'id={self.id}, user_id={self.user.id}, nickname={self.nickname}, profile_pic={self.profile_pic}'
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):

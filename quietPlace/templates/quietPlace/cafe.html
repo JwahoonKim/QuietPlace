@@ -13,7 +13,7 @@
     <link rel="stylesheet" href={% sass_src 'quietPlace/scss/cafe.scss' %}/>
   {% endblock style %}
 
-  {% block js%}
+  {% block js %}
     <!-- 네이버 지도를 위한 코드 -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=u2k6flryoy"></script>
     <!-- 주소를 사용해 위도 경도를 알아내기 위한 모듈 -->
@@ -136,12 +136,12 @@
                   <div id="{{review.id}}-review" class="comment mdl-color-text--grey-700 review">
                     <header class="comment__header">
                         <!-- 프로필사진 이미지-->
-                      {% if user.profile.profile_pic %}
-                      <img src="{{review.author.profile.profile_pic.url}}"
-                      class="review_profile_pic" />
+                      {% if review.author.profile.profile_pic %}
+                        <img src="{{review.author.profile.profile_pic.url}}"
+                        class="review_profile_pic" />
                       {% else %}
-                      <img src={% static 'quietPlace/img/익명유저사진.png'%}
-                      class="review_profile_pic" />
+                        <img src={% static 'quietPlace/img/익명유저사진.png'%}
+                        class="review_profile_pic" />
                       {% endif %}
                       <div class="comment__author">
                         <strong class="review-nickname">{{ review.author.profile.nickname }}</strong>
