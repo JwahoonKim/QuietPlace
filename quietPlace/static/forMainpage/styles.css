@@ -52,10 +52,16 @@ a img{
   width: 140px;
 }
 
+.border-added-header {
+  border-bottom: 4px solid gray;
+}
 
 .android-header {
   overflow: visible;
-  background-color: white;
+  background-color: white !important;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 }
 
   .android-header .material-icons {
@@ -90,7 +96,7 @@ a img{
   height: 100vh;
   width: auto;
   background-color: #f3f3f3;
-  background: url('images/main-ppl.jpg') center 30% no-repeat;
+  background: url('images/cafe1.jpg') center 30% no-repeat;
   background-size: cover;
 }
 

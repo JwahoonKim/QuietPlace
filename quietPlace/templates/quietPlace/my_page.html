@@ -1,12 +1,14 @@
 {% extends 'quietPlace/my_page_base.html' %}
 
+
 {% block content %}
   <div id="colorlib-main">
     <div class="hero-wrap js-fullheight" style="background-image: url(forMypage/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="js-fullheight d-flex justify-content-center align-items-center">
         <div class="col-md-8 text text-center">
-          <div class="img mb-4" style="background-image: url(forMypage/images/author.jpg);"></div>
+          <div class="img mb-4" style="background-image: url (forMypage/images/author.jpg);"></div>
+            <img src="{{photo.profile_pic.url}}" width="50"><br>
           <div class="desc">
             <h2 class="subheading">내 프로필</h2>
             <h1 class="mb-4">{{ user.profile.nickname }}</h1>

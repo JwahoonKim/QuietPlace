@@ -18,9 +18,10 @@ def signup(request):
                 username=request.POST['username'], password=request.POST['password'])
             user.profile.nickname = request.POST['nickname']
             user.profile.email = request.POST['email']
+            user.profile.profile_pic = request.POST['profile_pic']
             auth.login(request, user,
                        backend='django.contrib.auth.backends.ModelBackend')
-
+            user.profile.save()
             return redirect('/')
     return render(request, 'accounts/signup.html')
 
