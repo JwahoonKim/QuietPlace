@@ -21,13 +21,13 @@
       <form id="newcafe-form" method="POST" enctype="multipart/form-data" action="{% url 'new_cafe' %}">
         {% csrf_token %}
         <div class="container-fluid mb-5"><p>카페명</p><input type='text' placeholder='카페명' name='cafe_name'/></div>
-        <div class="container-fluid mb-5"><p>운영 시간</p><input type='textarea' placeholder='ex 월화수목금 10:00~22:00' name='working_hour'/></div>
+        <div class="container-fluid mb-5"><p>운영 시간</p><input type='textarea' placeholder='ex 평일 10:00~22:00' name='working_hour'/></div>
         <div class="container-fluid mb-5"><p>운영 상세</p><input type='textarea' placeholder='ex 휴일 및 운영 상세 정보' name='working_detail'/></div>
-        <div class="container-fluid mb-5"><p>대표 전화번호</p><input type='text' placeholder='ex 01011111111' name='phone'/></div>
-        <div class="container-fluid mb-5"><p>지역(서울대입구역, 대학동 중 택)</p><input placeholder=' 지역 입력 ' name='region'/></div>
+        <div class="container-fluid mb-5"><p>대표 전화번호</p><input type='text' placeholder='ex 010-1111-1111' name='phone'/></div>
+        <div class="container-fluid mb-5"><p>지역(서울대입구역/낙성대, 대학동 중 택)</p><input placeholder=' 지역 입력 ' name='region'/></div>
         <div>★★★★ 주소는 네이버에 먼저 검색해서 나오는지 확인하고 넣어주세요 ★★★★</div>
         <div class="container-fluid mb-5"><p>주소</p><input placeholder=' 도로명주소 입력' name='address'/></div>
-        <div class="container-fluid mb-5"><p>공간 유형(카페, 스터디카페, 공유오피스 중 택)</p><input placeholder=' 공간 유형 입력 ' name='category'/></div>
+        <div class="container-fluid mb-5"><p>공간 유형(카페, 스터디카페, 공유오피스/모임공간 중 택)</p><input placeholder=' 공간 유형 입력 ' name='category'/></div>
         <div class="container-fluid mb-5"><p>카페 이미지</p><input type="file" name="imgs" multiple></div>
         <div class="container-fluid mb-5"><p>짧은 설명 - 리스트 노출용으로 20-30자 내외</p><input type='text' placeholder='짧은 설명' name='short_description'/></div>
         <div class="container-fluid mb-5"><p>카페 설명</p><textarea placeholder='카페 소개 간략히' name="cafe_description" rows="20" cols="70"></textarea></div>
